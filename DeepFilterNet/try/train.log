@@ -1,0 +1,744 @@
+2024-01-14 05:48:38 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-14 05:48:38 | INFO     | DF | Running on host mmB
+2024-01-14 05:48:38 | INFO     | DF | Loading model settings of try
+2024-01-14 05:48:38 | INFO     | DF | Running on device cpu
+2024-01-14 05:48:38 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-14 05:48:38 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (6316), thread 'MainThread' (10392):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 627, in <module>
+    main()
+    └ <function main at 0x000001F7B5B2FBA0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 141, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'ds_dir'
+2024-01-14 05:56:34 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-14 05:56:34 | INFO     | DF | Running on host mmB
+2024-01-14 05:56:34 | INFO     | DF | Loading model settings of try
+2024-01-14 05:56:34 | INFO     | DF | Running on device cpu
+2024-01-14 05:56:34 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-14 05:56:34 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (1532), thread 'MainThread' (6492):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 643, in <module>
+    main()
+    └ <function main at 0x00000240A86E0400>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 157, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'ds_dir'
+2024-01-14 05:57:55 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-14 05:57:55 | INFO     | DF | Running on host mmB
+2024-01-14 05:57:55 | INFO     | DF | Loading model settings of try
+2024-01-14 05:57:55 | INFO     | DF | Running on device cpu
+2024-01-14 05:57:55 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-14 05:57:55 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (3068), thread 'MainThread' (11260):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 645, in <module>
+    main()
+    └ <function main at 0x000002778BD80400>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 159, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'ds_dir'
+2024-01-14 05:58:32 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-14 05:58:32 | INFO     | DF | Running on host mmB
+2024-01-14 05:58:32 | INFO     | DF | Loading model settings of try
+2024-01-14 05:58:32 | INFO     | DF | Running on device cpu
+2024-01-14 05:58:32 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-14 05:58:32 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (9252), thread 'MainThread' (6528):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 645, in <module>
+    main()
+    └ <function main at 0x0000024F8F380400>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 159, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'ds_config'
+2024-01-14 05:59:55 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-14 05:59:55 | INFO     | DF | Running on host mmB
+2024-01-14 05:59:55 | INFO     | DF | Loading model settings of try
+2024-01-14 05:59:55 | INFO     | DF | Running on device cpu
+2024-01-14 05:59:55 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-14 05:59:55 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (10520), thread 'MainThread' (4972):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 645, in <module>
+    main()
+    └ <function main at 0x000001B786240400>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 159, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'sr'
+2024-01-15 04:55:37 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 04:55:37 | INFO     | DF | Running on host mmB
+2024-01-15 04:55:37 | INFO     | DF | Loading model settings of try
+2024-01-15 04:55:37 | INFO     | DF | Running on device cpu
+2024-01-15 04:55:38 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 04:55:38 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (12432), thread 'MainThread' (6376):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 628, in <module>
+    main()
+    └ <function main at 0x00000234992E3BA0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 142, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'ds_dir'
+2024-01-15 04:58:32 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 04:58:32 | INFO     | DF | Running on host mmB
+2024-01-15 04:58:32 | INFO     | DF | Loading model settings of try
+2024-01-15 04:58:32 | INFO     | DF | Running on device cpu
+2024-01-15 04:58:32 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 04:58:32 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (15148), thread 'MainThread' (15156):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 635, in <module>
+    main()
+    └ <function main at 0x0000021B8ADB3C40>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 149, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'ds_dir'
+2024-01-15 04:58:42 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 04:58:42 | INFO     | DF | Running on host mmB
+2024-01-15 04:58:42 | INFO     | DF | Loading model settings of try
+2024-01-15 04:58:42 | INFO     | DF | Running on device cpu
+2024-01-15 04:58:42 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 04:58:42 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (15352), thread 'MainThread' (14632):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 635, in <module>
+    main()
+    └ <function main at 0x000001E593413C40>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 149, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'ds_dir'
+2024-01-15 04:59:07 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 04:59:07 | INFO     | DF | Running on host mmB
+2024-01-15 04:59:07 | INFO     | DF | Loading model settings of try
+2024-01-15 04:59:07 | INFO     | DF | Running on device cpu
+2024-01-15 04:59:07 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 04:59:07 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (12964), thread 'MainThread' (10596):
+Traceback (most recent call last):
+
+  File "C:\Users\maged\anaconda3\Lib\runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x000002AB63B24C90, file "c:\Users\maged\.vscode\extensions\ms-python.python-2023.22.1\pythonFiles\l...
+           └ <function _run_code at 0x000002AB63BB05E0>
+  File "C:\Users\maged\anaconda3\Lib\runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x000002AB63B24C90, file "c:\Users\maged\.vscode\extensions\ms-python.python-2023.22.1\pythonFiles\l...
+
+  File "c:\Users\maged\.vscode\extensions\ms-python.python-2023.22.1\pythonFiles\lib\python\debugpy\adapter/../..\debugpy\launcher/../..\debugpy\__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x000002AB66D2BF60>
+    └ <module 'debugpy.server.cli' from 'c:\\Users\\maged\\.vscode\\extensions\\ms-python.python-2023.22.1\\pythonFiles\\lib\\pytho...
+
+  File "c:\Users\maged\.vscode\extensions\ms-python.python-2023.22.1\pythonFiles\lib\python\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x000002AB66D2BCE0>
+
+  File "c:\Users\maged\.vscode\extensions\ms-python.python-2023.22.1\pythonFiles\lib\python\debugpy\adapter/../..\debugpy\launcher/../..\debugpy/..\debugpy\server\cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ 'd:\\Grad\\DeepFilterNet\\DeepFilterNet-main\\DeepFilterNet-main\\DeepFilterNet\\df\\train.py'
+    │     └ <function run_path at 0x000002AB661D5580>
+    └ <module '_pydevd_bundle.pydevd_runpy' from 'c:\\Users\\maged\\.vscode\\extensions\\ms-python.python-2023.22.1\\pythonFiles\\l...
+
+  File "c:\Users\maged\.vscode\extensions\ms-python.python-2023.22.1\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x000002AB65D1C510, file "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\...
+           └ <function _run_module_code at 0x000002AB661D51C0>
+
+  File "c:\Users\maged\.vscode\extensions\ms-python.python-2023.22.1\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'd:\\Grad\\Dee...
+    │         └ <code object <module> at 0x000002AB65D1C510, file "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\...
+    └ <function _run_code at 0x000002AB661D4D60>
+
+  File "c:\Users\maged\.vscode\extensions\ms-python.python-2023.22.1\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': 'd:\\Grad\\Dee...
+         └ <code object <module> at 0x000002AB65D1C510, file "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\...
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 635, in <module>
+    main()
+    └ <function main at 0x000002AB765DCD60>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 149, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'ds_dir'
+2024-01-15 05:04:24 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:04:24 | INFO     | DF | Running on host mmB
+2024-01-15 05:04:24 | INFO     | DF | Loading model settings of try
+2024-01-15 05:04:24 | INFO     | DF | Running on device cpu
+2024-01-15 05:04:24 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:04:24 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (11752), thread 'MainThread' (6740):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 635, in <module>
+    main()
+    └ <function main at 0x000001E5BBBA3C40>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 149, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'ds_dir'
+2024-01-15 05:06:30 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:06:30 | INFO     | DF | Running on host mmB
+2024-01-15 05:06:30 | INFO     | DF | Loading model settings of try
+2024-01-15 05:06:30 | INFO     | DF | Running on device cpu
+2024-01-15 05:06:30 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:06:30 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (7348), thread 'MainThread' (13032):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 635, in <module>
+    main()
+    └ <function main at 0x0000025D1F503C40>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 150, in main
+    dataloader.dataset==args.data_dir,
+                        │    └ 'D:/Grad/DeepFilterNet/DeepFilterNet-main/DeepFilterNet-main/DeepFilterNet/newDS/.hdf5'
+                        └ Namespace(data_config_file='D:/logfiles/log_testset.txt', data_dir='D:/Grad/DeepFilterNet/DeepFilterNet-main/DeepFilterNet-ma...
+
+UnboundLocalError: cannot access local variable 'dataloader' where it is not associated with a value
+2024-01-15 05:09:51 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:09:51 | INFO     | DF | Running on host mmB
+2024-01-15 05:09:51 | INFO     | DF | Loading model settings of try
+2024-01-15 05:09:51 | INFO     | DF | Running on device cpu
+2024-01-15 05:09:51 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:09:51 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (5772), thread 'MainThread' (7588):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 635, in <module>
+    main()
+    └ <function main at 0x0000028C51D23CE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 150, in main
+    dataloader.dataset==args.data_dir,
+                        │    └ 'D:/Grad/DeepFilterNet/DeepFilterNet-main/DeepFilterNet-main/DeepFilterNet/newDS/'
+                        └ Namespace(data_config_file='D:/logfiles/log_testset.txt', data_dir='D:/Grad/DeepFilterNet/DeepFilterNet-main/DeepFilterNet-ma...
+
+UnboundLocalError: cannot access local variable 'dataloader' where it is not associated with a value
+2024-01-15 05:10:41 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:10:41 | INFO     | DF | Running on host mmB
+2024-01-15 05:10:41 | INFO     | DF | Loading model settings of try
+2024-01-15 05:10:41 | INFO     | DF | Running on device cpu
+2024-01-15 05:10:41 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:10:41 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (12592), thread 'MainThread' (12460):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 635, in <module>
+    main()
+    └ <function main at 0x000001FB3E743CE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 149, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'ds_dir'
+2024-01-15 05:11:06 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:11:06 | INFO     | DF | Running on host mmB
+2024-01-15 05:11:06 | INFO     | DF | Loading model settings of try
+2024-01-15 05:11:06 | INFO     | DF | Running on device cpu
+2024-01-15 05:11:06 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:11:06 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (15048), thread 'MainThread' (14496):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 635, in <module>
+    main()
+    └ <function main at 0x00000125E9F83CE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 149, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'ds_dir'
+2024-01-15 05:14:19 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:14:19 | INFO     | DF | Running on host mmB
+2024-01-15 05:14:19 | INFO     | DF | Loading model settings of try
+2024-01-15 05:14:19 | INFO     | DF | Running on device cpu
+2024-01-15 05:14:19 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:14:19 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (5384), thread 'MainThread' (8048):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 635, in <module>
+    main()
+    └ <function main at 0x0000024103D67D80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 149, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'ds_dir'
+2024-01-15 05:19:05 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:19:05 | INFO     | DF | Running on host mmB
+2024-01-15 05:19:05 | INFO     | DF | Loading model settings of try
+2024-01-15 05:19:05 | INFO     | DF | Running on device cpu
+2024-01-15 05:19:05 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:19:05 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (4480), thread 'MainThread' (14824):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x00000201938C7D80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 152, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'ds_config'
+2024-01-15 05:19:24 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:19:24 | INFO     | DF | Running on host mmB
+2024-01-15 05:19:24 | INFO     | DF | Loading model settings of try
+2024-01-15 05:19:24 | INFO     | DF | Running on device cpu
+2024-01-15 05:19:24 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:19:24 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (7508), thread 'MainThread' (15356):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x000001B4C369FCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 152, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'sr'
+2024-01-15 05:23:11 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:23:11 | INFO     | DF | Running on host mmB
+2024-01-15 05:23:11 | INFO     | DF | Loading model settings of try
+2024-01-15 05:23:11 | INFO     | DF | Running on device cpu
+2024-01-15 05:23:11 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:23:11 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (14368), thread 'MainThread' (5440):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x000002B141CAFCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 152, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'batch_size_eval'
+2024-01-15 05:24:11 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:24:11 | INFO     | DF | Running on host mmB
+2024-01-15 05:24:11 | INFO     | DF | Loading model settings of try
+2024-01-15 05:24:11 | INFO     | DF | Running on device cpu
+2024-01-15 05:24:11 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:24:12 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (12408), thread 'MainThread' (8972):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x00000208CAD13CE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 152, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'max_len_s'
+2024-01-15 05:24:33 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:24:33 | INFO     | DF | Running on host mmB
+2024-01-15 05:24:33 | INFO     | DF | Loading model settings of try
+2024-01-15 05:24:33 | INFO     | DF | Running on device cpu
+2024-01-15 05:24:33 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:24:33 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (9528), thread 'MainThread' (14012):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x0000022485B03CE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 152, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'fft_size'
+2024-01-15 05:25:02 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:25:02 | INFO     | DF | Running on host mmB
+2024-01-15 05:25:02 | INFO     | DF | Loading model settings of try
+2024-01-15 05:25:02 | INFO     | DF | Running on device cpu
+2024-01-15 05:25:02 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:25:02 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (12608), thread 'MainThread' (10924):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x000002374BC7FCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 152, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'hop_size'
+2024-01-15 05:25:14 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:25:14 | INFO     | DF | Running on host mmB
+2024-01-15 05:25:14 | INFO     | DF | Loading model settings of try
+2024-01-15 05:25:14 | INFO     | DF | Running on device cpu
+2024-01-15 05:25:14 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:25:14 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (13252), thread 'MainThread' (5884):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x0000028F84C43CE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 152, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'nb_erb'
+2024-01-15 05:25:29 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:25:29 | INFO     | DF | Running on host mmB
+2024-01-15 05:25:29 | INFO     | DF | Loading model settings of try
+2024-01-15 05:25:29 | INFO     | DF | Running on device cpu
+2024-01-15 05:25:29 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:25:29 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (11440), thread 'MainThread' (3084):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x00000156DDF93CE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 152, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'norm_alpha'
+2024-01-15 05:26:14 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:26:14 | INFO     | DF | Running on host mmB
+2024-01-15 05:26:14 | INFO     | DF | Loading model settings of try
+2024-01-15 05:26:14 | INFO     | DF | Running on device cpu
+2024-01-15 05:26:14 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:26:14 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (14168), thread 'MainThread' (12920):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x00000220B370FCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 152, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'p_reverb'
+2024-01-15 05:32:09 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:32:09 | INFO     | DF | Running on host mmB
+2024-01-15 05:32:09 | INFO     | DF | Loading model settings of try
+2024-01-15 05:32:09 | INFO     | DF | Running on device cpu
+2024-01-15 05:32:09 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:32:10 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (14280), thread 'MainThread' (15196):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x000002163095FCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 152, in main
+    dataloader = DataLoader(
+                 └ <class 'torch.utils.data.dataloader.DataLoader'>
+
+TypeError: DataLoader.__init__() got an unexpected keyword argument 'max_len_s'
+2024-01-15 05:32:24 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:32:24 | INFO     | DF | Running on host mmB
+2024-01-15 05:32:24 | INFO     | DF | Loading model settings of try
+2024-01-15 05:32:24 | INFO     | DF | Running on device cpu
+2024-01-15 05:32:24 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:32:31 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (14668), thread 'MainThread' (14452):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x00000243F635FCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 260, in main
+    train_loss = run_epoch(
+                 └ <function run_epoch at 0x00000243F7449A80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 351, in run_epoch
+    bs = loader.get_batch_size(split)
+         │                     └ 'train'
+         └ <torch.utils.data.dataloader.DataLoader object at 0x00000243F62C2450>
+
+AttributeError: 'DataLoader' object has no attribute 'get_batch_size'
+2024-01-15 05:33:30 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:33:30 | INFO     | DF | Running on host mmB
+2024-01-15 05:33:30 | INFO     | DF | Loading model settings of try
+2024-01-15 05:33:30 | INFO     | DF | Running on device cpu
+2024-01-15 05:33:30 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:33:31 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (2956), thread 'MainThread' (6156):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x0000020F0B153CE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 260, in main
+    train_loss = run_epoch(
+                 └ <function run_epoch at 0x0000020F0B269A80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 351, in run_epoch
+    bs = loader.batch_size(split)
+         │      │          └ 'train'
+         │      └ 1
+         └ <torch.utils.data.dataloader.DataLoader object at 0x0000020F0B2A1510>
+
+TypeError: 'int' object is not callable
+2024-01-15 05:33:51 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:33:51 | INFO     | DF | Running on host mmB
+2024-01-15 05:33:51 | INFO     | DF | Loading model settings of try
+2024-01-15 05:33:51 | INFO     | DF | Running on device cpu
+2024-01-15 05:33:51 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:33:51 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (12448), thread 'MainThread' (10152):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x000002447AB4FCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 260, in main
+    train_loss = run_epoch(
+                 └ <function run_epoch at 0x000002447BC39A80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 352, in run_epoch
+    logger.info("Start {} epoch {} with batch size {}".format(split, epoch, bs))
+    │      │                                                  │      └ 0
+    │      │                                                  └ 'train'
+    │      └ <function Logger.info at 0x0000024479CA5260>
+    └ <loguru.logger handlers=[(id=1, level=20, sink=<stdout>), (id=2, level=20, sink='D:/Grad/DeepFilterNet/DeepFilterNet-main/Dee...
+
+NameError: name 'bs' is not defined
+2024-01-15 05:35:24 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:35:24 | INFO     | DF | Running on host mmB
+2024-01-15 05:35:25 | INFO     | DF | Loading model settings of try
+2024-01-15 05:35:25 | INFO     | DF | Running on device cpu
+2024-01-15 05:35:25 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:35:25 | INFO     | DF | Start train epoch 0 with batch size 1
+2024-01-15 05:35:25 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (12200), thread 'MainThread' (13652):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 638, in <module>
+    main()
+    └ <function main at 0x000001AB898AFCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 260, in main
+    train_loss = run_epoch(
+                 └ <function run_epoch at 0x000001AB899C9A80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 362, in run_epoch
+    max_steps = loader.len(split) - 1
+                │          └ 'train'
+                └ <torch.utils.data.dataloader.DataLoader object at 0x000001AB8988CA50>
+
+AttributeError: 'DataLoader' object has no attribute 'len'
+2024-01-15 05:42:29 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:42:29 | INFO     | DF | Running on host mmB
+2024-01-15 05:42:29 | INFO     | DF | Loading model settings of try
+2024-01-15 05:42:29 | INFO     | DF | Running on device cpu
+2024-01-15 05:42:29 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:42:30 | INFO     | DF | Start train epoch 0 with batch size 1
+2024-01-15 05:42:30 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (12324), thread 'MainThread' (3744):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 639, in <module>
+    main()
+    └ <function main at 0x000001C55EF0FCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 260, in main
+    train_loss = run_epoch(
+                 └ <function run_epoch at 0x000001C55FFF9A80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 366, in run_epoch
+    start_steps = epoch * loader.len(split)
+                  │       │          └ 'train'
+                  │       └ <torch.utils.data.dataloader.DataLoader object at 0x000001C55EF9FE90>
+                  └ 0
+
+AttributeError: 'DataLoader' object has no attribute 'len'
+2024-01-15 05:45:07 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:45:07 | INFO     | DF | Running on host mmB
+2024-01-15 05:45:07 | INFO     | DF | Loading model settings of try
+2024-01-15 05:45:07 | INFO     | DF | Running on device cpu
+2024-01-15 05:45:07 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:45:08 | INFO     | DF | Start train epoch 0 with batch size 1
+2024-01-15 05:45:08 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (13736), thread 'MainThread' (2428):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 639, in <module>
+    main()
+    └ <function main at 0x000002807CB93CE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 260, in main
+    train_loss = run_epoch(
+                 └ <function run_epoch at 0x000002807CCA9A80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 368, in run_epoch
+    for i, batch in enumerate(loader.iter_epoch(split, seed)):
+                              │                 │      └ 0
+                              │                 └ 'train'
+                              └ <torch.utils.data.dataloader.DataLoader object at 0x000002807CB5B6D0>
+
+AttributeError: 'DataLoader' object has no attribute 'iter_epoch'
+2024-01-15 05:45:48 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:45:48 | INFO     | DF | Running on host mmB
+2024-01-15 05:45:48 | INFO     | DF | Loading model settings of try
+2024-01-15 05:45:48 | INFO     | DF | Running on device cpu
+2024-01-15 05:45:48 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:45:48 | INFO     | DF | Start train epoch 0 with batch size 1
+2024-01-15 05:45:54 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (7608), thread 'MainThread' (13300):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 639, in <module>
+    main()
+    └ <function main at 0x000002AE23F2FCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 260, in main
+    train_loss = run_epoch(
+                 └ <function run_epoch at 0x000002AE24049A80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 377, in run_epoch
+    assert batch.feat_spec is not None
+           └ ['D']
+
+AttributeError: 'list' object has no attribute 'feat_spec'
+2024-01-15 05:47:29 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:47:29 | INFO     | DF | Running on host mmB
+2024-01-15 05:47:29 | INFO     | DF | Loading model settings of try
+2024-01-15 05:47:29 | INFO     | DF | Running on device cpu
+2024-01-15 05:47:29 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:47:30 | INFO     | DF | Start train epoch 0 with batch size 1
+2024-01-15 05:47:35 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (8872), thread 'MainThread' (13264):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 639, in <module>
+    main()
+    └ <function main at 0x000001E3691BFCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 260, in main
+    train_loss = run_epoch(
+                 └ <function run_epoch at 0x000001E3692D9A80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 377, in run_epoch
+    assert batch.spec is not None
+           └ ['D']
+
+AttributeError: 'list' object has no attribute 'spec'
+2024-01-15 05:50:12 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:50:12 | INFO     | DF | Running on host mmB
+2024-01-15 05:50:12 | INFO     | DF | Loading model settings of try
+2024-01-15 05:50:12 | INFO     | DF | Running on device cpu
+2024-01-15 05:50:12 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:50:13 | INFO     | DF | Start train epoch 0 with batch size 1
+2024-01-15 05:50:19 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (9600), thread 'MainThread' (1368):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 640, in <module>
+    main()
+    └ <function main at 0x00000154FCC3FCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 260, in main
+    train_loss = run_epoch(
+                 └ <function run_epoch at 0x00000154FCD59A80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 369, in run_epoch
+    feat_spec, labels = batch
+                        └ ['D']
+
+ValueError: not enough values to unpack (expected 2, got 1)
+2024-01-15 05:50:47 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:50:47 | INFO     | DF | Running on host mmB
+2024-01-15 05:50:47 | INFO     | DF | Loading model settings of try
+2024-01-15 05:50:47 | INFO     | DF | Running on device cpu
+2024-01-15 05:50:47 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:50:48 | INFO     | DF | Start train epoch 0 with batch size 1
+2024-01-15 05:50:53 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (12788), thread 'MainThread' (8664):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 640, in <module>
+    main()
+    └ <function main at 0x0000026DACBEFCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 260, in main
+    train_loss = run_epoch(
+                 └ <function run_epoch at 0x0000026DADCD9A80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 378, in run_epoch
+    assert batch.feat_spec is not None
+           └ ['D']
+
+AttributeError: 'list' object has no attribute 'feat_spec'
+2024-01-15 05:52:26 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:52:26 | INFO     | DF | Running on host mmB
+2024-01-15 05:52:26 | INFO     | DF | Loading model settings of try
+2024-01-15 05:52:26 | INFO     | DF | Running on device cpu
+2024-01-15 05:52:26 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:52:27 | INFO     | DF | Start train epoch 0 with batch size 1
+2024-01-15 05:52:33 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (11004), thread 'MainThread' (9372):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 639, in <module>
+    main()
+    └ <function main at 0x00000229B7613CE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 260, in main
+    train_loss = run_epoch(
+                 └ <function run_epoch at 0x00000229B7729A80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 378, in run_epoch
+    assert batch.feat_erb is not None
+           └ ['D']
+
+AttributeError: 'list' object has no attribute 'feat_erb'
+2024-01-15 05:52:44 | INFO     | DF | Running on torch 2.1.0+cu121
+2024-01-15 05:52:44 | INFO     | DF | Running on host mmB
+2024-01-15 05:52:44 | INFO     | DF | Loading model settings of try
+2024-01-15 05:52:44 | INFO     | DF | Running on device cpu
+2024-01-15 05:52:44 | INFO     | DF | Initializing model `deepfilternet3`
+2024-01-15 05:52:45 | INFO     | DF | Start train epoch 0 with batch size 1
+2024-01-15 05:52:50 | ERROR    | DF | An error has been caught in function '<module>', process 'MainProcess' (13712), thread 'MainThread' (2116):
+Traceback (most recent call last):
+
+> File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 639, in <module>
+    main()
+    └ <function main at 0x000001AE7678FCE0>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 260, in main
+    train_loss = run_epoch(
+                 └ <function run_epoch at 0x000001AE768A9A80>
+
+  File "d:\Grad\DeepFilterNet\DeepFilterNet-main\DeepFilterNet-main\DeepFilterNet\df\train.py", line 379, in run_epoch
+    feat_erb = batch.feat_erb.to(dev, non_blocking=True)
+               │                 └ device(type='cpu')
+               └ ['D']
+
+AttributeError: 'list' object has no attribute 'feat_erb'
