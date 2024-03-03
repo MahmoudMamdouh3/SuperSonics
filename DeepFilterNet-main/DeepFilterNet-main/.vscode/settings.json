@@ -1,0 +1,7 @@
+{
+    "python.analysis.extraPaths": [
+        "./pyDF",
+        "./pyDF-data"
+    ],
+    "python.analysis.autoImportCompletions": true
+}
