@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios"; // Import Axios
 import {
   Container,
   Typography,
@@ -50,19 +51,35 @@ function JoinUS() {
     return Object.keys(errors).length === 0;
   };
 
-  const handleSignIn = (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
     if (validateInputs()) {
-      // Proceed with sign-in logic
-      console.log("Sign-in successful");
+      try {
+        const response = await axios.post("/api/signin", {
+          username,
+          password,
+        });
+        console.log("Sign-in successful:", response.data);
+      } catch (error) {
+        console.error("Sign-in error:", error.response.data);
+      }
     }
   };
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     if (validateInputs()) {
-      // Proceed with sign-up logic
-      console.log("Sign-up successful");
+      try {
+        const response = await axios.post("/api/signup", {
+          username,
+          email,
+          dob,
+          password,
+        });
+        console.log("Sign-up successful:", response.data);
+      } catch (error) {
+        console.error("Sign-up error:", error.response.data);
+      }
     }
   };
 

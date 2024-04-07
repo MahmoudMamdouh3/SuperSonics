@@ -22,7 +22,7 @@
   text-decoration: none;
   margin: 0 10px;
   transition: all 0.3s;
-  font-weight: 800;
+  font-weight: 400;
   font-size: small;
 
   &:hover {

@@ -17,7 +17,7 @@ import {
   InputLabel,
 } from "@mui/material";
 
-function FileUpload() {
+function AudioUpload() {
   const [selectedAudioFile, setSelectedAudioFile] = useState(null);
   const [selectedMidiFile, setSelectedMidiFile] = useState(null);
   const [selectedFormats, setSelectedFormats] = useState([]); // State to store selected formats
@@ -34,12 +34,12 @@ function FileUpload() {
 
   // Define image URLs for each artist
   const [artistImages] = useState({
-    "Amr Diab": "./assets/amrdiab.jpeg",
-    "Om Kalthoum": "./assets/omkalthoum.jpeg",
-    "Sayed Darwish": "./assets/sayeddarwish.jpeg",
-    Abdelhalim: "./assets/abdelhalim.jpeg",
-    Abdelwahab: "./assets/abdelwahab.jpeg",
-    "Mickael Jackson": "./assets/jackson.jpeg",
+    "Amr Diab": "/assets/amrdiab.jpeg",
+    "Om Kalthoum": "/assets/omkalthoum.jpeg",
+    "Sayed Darwish": "/assets/sayeddarwish.jpeg",
+    Abdelhalim: "/assets/abdelhalim.jpeg",
+    Abdelwahab: "/assets/abdelwahab.jpeg",
+    "Mickael Jackson": "/assets/jackson.jpeg",
   });
 
   const handleAudioFileChange = (event) => {
@@ -222,4 +222,4 @@ function FileUpload() {
   );
 }
 
-export default FileUpload;
+export default AudioUpload;
