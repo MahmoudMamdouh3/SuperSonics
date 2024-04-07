@@ -55,7 +55,6 @@ function ViewProfile() {
         overflow: "hidden",
         backgroundImage: `url(/assets/background.jpg)`, // Background image
         backgroundSize: "cover", // Cover the entire viewport
-        backdropFilter: "blur(10px)", // Blurry background
       }}
     >
       <Box
@@ -63,7 +62,7 @@ function ViewProfile() {
           padding: "20px",
           border: "1px solid #000", // Black border
           borderRadius: 8,
-          backgroundColor: "rgba(0, 0, 0, 0.5)", // Black with opacity
+          backdropFilter: "blur(20px)",
           position: "absolute",
           top: "50%",
           left: "50%",

@@ -77,14 +77,22 @@ function JoinUS() {
           flexDirection: "column",
           justifyContent: "space-between",
           minHeight: "100vh",
+          padding: "10px",
         }}
       >
-        <div style={{ marginTop: "2rem" }}>
+        <div
+          style={{
+            backdropFilter: "blur(30px)", // Blurry background
+            border: "1px solid #000", // Black border
+            borderRadius: 8,
+            padding: "10px",
+          }}
+        >
           <Typography variant="h4" gutterBottom>
             {isSignUp ? "Sign Up" : "Sign In"}
           </Typography>
           <form
-            style={{ width: "100%", marginTop: "1rem" }}
+            style={{ width: "100%", marginTop: "5rem" }}
             noValidate
             autoComplete="off"
             onSubmit={isSignUp ? handleSignUp : handleSignIn}
