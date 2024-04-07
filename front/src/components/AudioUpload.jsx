@@ -16,13 +16,14 @@ import {
   FormControl,
   InputLabel,
 } from "@mui/material";
+import axios from "axios"; // Import Axios
 
 function AudioUpload() {
   const [selectedAudioFile, setSelectedAudioFile] = useState(null);
   const [selectedMidiFile, setSelectedMidiFile] = useState(null);
-  const [selectedFormats, setSelectedFormats] = useState([]); // State to store selected formats
+  const [selectedFormats, setSelectedFormats] = useState([]);
   const [openArtistSelection, setOpenArtistSelection] = useState(false);
-  const [selectedArtist, setSelectedArtist] = useState(""); // State to store selected artist
+  const [selectedArtist, setSelectedArtist] = useState("");
   const [artistCounts, setArtistCounts] = useState({
     "Amr Diab": 0,
     "Om Kalthoum": 0,
@@ -31,8 +32,6 @@ function AudioUpload() {
     Abdelwahab: 0,
     "Mickael Jackson": 0,
   });
-
-  // Define image URLs for each artist
   const [artistImages] = useState({
     "Amr Diab": "/assets/amrdiab.jpeg",
     "Om Kalthoum": "/assets/omkalthoum.jpeg",
@@ -54,11 +53,22 @@ function AudioUpload() {
     setSelectedFormats(event.target.value);
   };
 
-  const handleUpload = () => {
-    // Handle file upload logic
-    console.log("Audio file uploaded:", selectedAudioFile);
-    console.log("MIDI file uploaded:", selectedMidiFile);
-    console.log("Selected formats:", selectedFormats);
+  const handleUpload = async () => {
+    const formData = new FormData();
+    formData.append("audioFile", selectedAudioFile);
+    formData.append("midiFile", selectedMidiFile);
+    formData.append("formats", JSON.stringify(selectedFormats));
+
+    try {
+      const response = await axios.post("YOUR_UPLOAD_ENDPOINT", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log("Response from server:", response.data);
+    } catch (error) {
+      console.error("Error uploading files:", error);
+    }
   };
 
   const handleOpenArtistSelection = () => {
@@ -70,7 +80,7 @@ function AudioUpload() {
   };
 
   const handleSelectArtist = (artist) => {
-    setSelectedArtist(artist); // Set the selected artist
+    setSelectedArtist(artist);
     const updatedCounts = { ...artistCounts };
     updatedCounts[artist]++;
     setArtistCounts(updatedCounts);
@@ -185,8 +195,8 @@ function AudioUpload() {
               <Grid item xs={4} key={index}>
                 <Avatar
                   alt={artist}
-                  src={artistImages[artist]} // Use dynamic image URLs
-                  sx={{ width: 150, height: 150, margin: "auto" }} // Increased image size
+                  src={artistImages[artist]}
+                  sx={{ width: 150, height: 150, margin: "auto" }}
                 />
                 <Typography
                   variant="subtitle1"

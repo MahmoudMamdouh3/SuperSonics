@@ -1,29 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, TextField, Button, Typography } from "@mui/material";
+import axios from "axios"; // Import Axios
 
 function ContactForm() {
+  // State to store form data
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  // Handler for input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  // Handler for form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // Send POST request to backend API endpoint
+      const response = await axios.post("your_backend_api_endpoint", formData);
+      console.log("Form submission successful!", response.data);
+      // Optionally, you can reset the form data after successful submission
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
+
   return (
     <Box
       sx={{
         display: "flex",
         flexDirection: "row",
-        justifyContent: "space-between", // Align items in a row
+        justifyContent: "space-between",
         marginBottom: "20px",
-        // Add styles for the container with blurry background
-        backgroundColor: "rgba(255, 255, 255, 0.8)", // Semi-transparent white background
-        backdropFilter: "blur(10px)", // Apply blur effect
-        borderRadius: "10px", // Add border radius for rounded corners
-        padding: "20px", // Add padding for content spacing
-        border: "2px solid black", // Add black border
+        backgroundColor: "rgba(255, 255, 255, 0.8)",
+        backdropFilter: "blur(10px)",
+        borderRadius: "10px",
+        padding: "20px",
+        border: "2px solid black",
       }}
     >
-      {/* Company details on the left */}
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start", // Align company details to the left
-          width: "45%", // Adjust the width as needed
+          alignItems: "flex-start",
+          width: "45%",
         }}
       >
         <Typography variant="h4" sx={{ marginBottom: "10px" }}>
@@ -43,23 +76,30 @@ function ContactForm() {
         </Typography>
       </Box>
 
-      {/* Contact form fields on the right */}
       <Box
+        component="form"
+        onSubmit={handleSubmit} // Attach handleSubmit to form submission
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start", // Align form fields to the left
-          width: "45%", // Adjust the width as needed
+          alignItems: "flex-start",
+          width: "45%",
         }}
       >
         <TextField
           label="Name"
           variant="outlined"
+          name="name"
+          value={formData.name} // Bind value to form state
+          onChange={handleInputChange} // Attach handleInputChange to input change
           sx={{ width: "100%", marginBottom: "10px" }}
         />
         <TextField
           label="Email"
           variant="outlined"
+          name="email"
+          value={formData.email} // Bind value to form state
+          onChange={handleInputChange} // Attach handleInputChange to input change
           sx={{ width: "100%", marginBottom: "10px" }}
         />
         <TextField
@@ -67,9 +107,16 @@ function ContactForm() {
           multiline
           rows={4}
           variant="outlined"
+          name="message"
+          value={formData.message} // Bind value to form state
+          onChange={handleInputChange} // Attach handleInputChange to input change
           sx={{ width: "100%", marginBottom: "10px" }}
         />
-        <Button variant="contained" sx={{ width: "100%", marginTop: "10px" }}>
+        <Button
+          variant="contained"
+          type="submit" // Specify button type as submit
+          sx={{ width: "100%", marginTop: "10px" }}
+        >
           Send
         </Button>
       </Box>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button, Typography, Box, Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function ViewProfile() {
   const [userInfo, setUserInfo] = useState({
@@ -11,10 +12,16 @@ function ViewProfile() {
     avatar: "/assets/user-avatar.png",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted!");
-    console.log("Updated user information:", userInfo);
+    try {
+      const response = await axios.post("YOUR_BACKEND_API_URL", userInfo);
+      console.log("Response:", response.data);
+      // Handle response data as needed
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle error
+    }
   };
 
   const handleInputChange = (e) => {
@@ -39,9 +46,15 @@ function ViewProfile() {
     }
   };
 
-  const handleDeleteAccount = () => {
-    // Implement logic to delete the account here
-    console.log("Account deleted!");
+  const handleDeleteAccount = async () => {
+    try {
+      const response = await axios.delete("YOUR_DELETE_ENDPOINT");
+      console.log("Account deleted:", response.data);
+      // Handle success message or redirect the user
+    } catch (error) {
+      console.error("Error deleting account:", error);
+      // Handle error
+    }
   };
 
   return (
