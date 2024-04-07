@@ -1,8 +1,8 @@
 import datetime
 from django.db import models
 from django.core.exceptions import ValidationError
-from django.core.validators import EmailValidator, validate_password
-
+from django.core.validators import EmailValidator
+from django.contrib.auth.password_validation import validate_password
 
 # Create your models here.
 def validate_audio_file(value):
@@ -89,7 +89,7 @@ class Subscription(models.Model):
 class artist(models.Model):
     Artist_ID = models.AutoField(primary_key=True)
     Artist_Name = models.CharField(max_length=100,null=True, blank=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     Artist_voice = models.FileField(upload_to='uploads/voice/',validators=[validate_audio_file],null=True, blank=True)
     Artist_image = models.ImageField(upload_to='uploads/artist_img/', null=True, blank=True)
     Artist_songs = models.FileField(upload_to='uploads/song/', validators=[validate_audio_file], null=True, blank=True)  
