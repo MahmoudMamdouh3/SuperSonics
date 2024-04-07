@@ -1,0 +1,253 @@
+.nav-brand {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  color: rgb(187, 109, 109);
+}
+
+.nav-logo {
+  width: 12%;
+  display: flex-start;
+  visibility: visible;
+}
+.nav-items.show {
+  display: flex;
+}
+.nav-items.hide {
+  display: none;
+}
+.nav-item {
+  color: gray;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: all 0.3s;
+  font-weight: 800;
+  font-size: small;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.feedback-section {
+  display: flex;
+  gap: 50px;
+  padding: 0 50px;
+  margin-block: 60px;
+}
+
+.feedback-card {
+  background-color: #b1a9a979;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ffffff;
+}
+
+.feedback-card p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.feedback-card .name {
+  font-weight: bold;
+}
+
+.feedback-card .job-title {
+  color: #666;
+}
+
+.feedback-card .comment {
+  margin-top: 10px;
+}
+
+.feedback-card .delete-button {
+  margin-top: 20px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.feedback-card .delete-button:hover {
+  background-color: #ff7875;
+}
+
+& h3,
+h4 {
+  margin: 10px;
+}
+.upgrade-plan-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.payment-plans {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.payment-plan {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.payment-plan:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.payment-plan-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.plan-price {
+  font-size: 24px;
+  color: #007bff; /* Blue color for price */
+}
+
+.plan-description {
+  font-size: 16px;
+  color: #666; /* Dark gray color for description */
+}
+
+.join-us-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-content {
+  width: 50px;
+}
+
+.right-content {
+  width: 100px;
+}
+
+.join-us-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to the top */
+}
+
+.left-content {
+  width: 50px; /* Adjust as needed */
+}
+
+.right-content {
+  width: 100px; /* Adjust as needed */
+}
+.file-upload-container {
+  height: auto;
+  max-width: 400px;
+  margin: 50px auto 20px;
+  padding: 20px;
+  border: 1px solid black; /* Corrected border declaration */
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Semi-transparent white background */
+  backdrop-filter: blur(8px); /* Blurry effect */
+}
+
+.file-upload-container:hover {
+  transform: translateY(-5px);
+}
+
+.file-upload-container > * {
+  margin-bottom: 20px;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.button {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.input-button-container {
+  margin-bottom: 20px;
+}
+
+.input-button-container label {
+  display: block;
+}
+
+.format-dropdown {
+  margin-bottom: 20px;
+}
+
+.upload-button {
+  margin-bottom: 20px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.avatar-image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.avatar-wrapper:hover .avatar-image {
+  transform: scale(1.1);
+}
+
+.container {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  background-color: #f8f9fa;
+  padding: 20px;
+  margin-top: auto; /* Push the footer to the bottom */
+}
