@@ -119,7 +119,35 @@ def get_pre_pro_audio_by_name(audio_name):
             except pre_pro.DoesNotExist:
                 return None
 
+def add_user(Fname, Lname, username, password, Email, Age, Phone, Address, City, Country, Postal_Code, user_image):
+    user = User(Fname=Fname, Lname=Lname, username=username, password=password, Email=Email, Age=Age, Phone=Phone, Address=Address, City=City, Country=Country, Postal_Code=Postal_Code, user_image=user_image)
+    user.save()
+    return user
 
+def add_subscription(User, Card_No, CVV, Card_Name, End_Date):
+    subscription = Subscription(User=User, Card_No=Card_No, CVV=CVV, Card_Name=Card_Name, End_Date=End_Date)
+    subscription.save()
+    return subscription
+
+def add_artist(Artist_Name, user, Artist_voice, Artist_image, Artist_songs, song_lyrics):
+    artist = artist(Artist_Name=Artist_Name, user=user, Artist_voice=Artist_voice, Artist_image=Artist_image, Artist_songs=Artist_songs, song_lyrics=song_lyrics)
+    artist.save()
+    return artist
+
+def add_audio(user, Audio_Name, Audio, size, date, time):
+    audio = Audio(user=user, Audio_Name=Audio_Name, Audio=Audio, size=size, date=date, time=time)
+    audio.save()
+    return audio
+
+def add_pre_pro(user, Pre_pro_Name, Pre_pro_audio, size, date, time):
+    pre_pro = pre_pro(user=user, Pre_pro_Name=Pre_pro_Name, Pre_pro_audio=Pre_pro_audio, size=size, date=date, time=time)
+    pre_pro.save()
+    return pre_pro
+
+def add_enhanced_audio(user, Enhanced_Name, Enhanced_audio, size, date, time):
+    enhanced_audio = Enhanced_audio(user=user, Enhanced_Name=Enhanced_Name, Enhanced_audio=Enhanced_audio, size=size, date=date, time=time)
+    enhanced_audio.save()
+    return enhanced_audio
 class User(models.Model):
     id_number = models.AutoField(primary_key=True)
     Fname = models.CharField(max_length=100)
