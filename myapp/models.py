@@ -17,7 +17,71 @@ def validate_video_file(value):
     if not any(value.name.endswith(ext) for ext in valid_extensions):
         raise ValidationError("Invalid file type: only .mp4, .avi, .mov, .flv, .wmv allowed.")
     
-    
+def get_user_by_id(user_id):
+    try:
+        user = User.objects.get(id_number=user_id)
+        return user
+    except User.DoesNotExist:
+        return None
+
+def handle_audio_upload(user, file, audio_name):
+    validate_audio_file(file)
+    audio = Audio(user=user, Audio_Name=audio_name, Audio=file)
+    audio.save()
+
+def handle_text_upload(user, file, pre_pro_name):
+    validate_text_file(file)
+    pre_pro = pre_pro(user=user, Pre_pro_Name=pre_pro_name, Pre_pro_audio=file)
+    pre_pro.save()
+
+def handle_video_upload(user, file, enhanced_name):
+    validate_video_file(file)
+    enhanced_audio = Enhanced_audio(user=user, Enhanced_Name=enhanced_name, Enhanced_audio=file)
+    enhanced_audio.save()
+
+
+def get_user_by_username(username):
+    try:
+        user = User.objects.get(username=username)
+        return user
+    except User.DoesNotExist:
+        return None
+
+def update_user(user_id, new_info):
+    try:
+        user = User.objects.get(id_number=user_id)
+        # Assuming new_info is a dictionary with the new values
+        for attr, value in new_info.items():
+            setattr(user, attr, value)
+        user.save()
+    except User.DoesNotExist:
+        return None
+
+def delete_user(user_id):
+    try:
+        user = User.objects.get(id_number=user_id)
+        user.delete()
+    except User.DoesNotExist:
+        return None
+
+
+def get_artist_by_id(artist_id):
+    try:
+        artist = artist.objects.get(Artist_ID=artist_id)
+        return artist
+    except artist.DoesNotExist:
+        return None
+
+def get_artist_by_name(artist_name):
+    try:
+        artist = artist.objects.get(Artist_Name=artist_name)
+        return artist
+    except artist.DoesNotExist:
+        return None
+
+
+
+
 class User(models.Model):
     id_number = models.AutoField(primary_key=True)
     Fname = models.CharField(max_length=100)
