@@ -55,9 +55,18 @@ def update_user(user_id, new_info):
         user = User.objects.get(id_number=user_id)
         # Assuming new_info is a dictionary with the new values
         for attr, value in new_info.items():
-            setattr(user, attr, value)
+            if hasattr(user, attr):
+                setattr(user, attr, value)
+        
+        # Validate the new values
+        user.full_clean()
+
         user.save()
     except User.DoesNotExist:
+        return None
+    except ValidationError as e:
+        # Handle validation errors here
+        print(e)
         return None
 
 def delete_user(user_id):
@@ -82,7 +91,33 @@ def get_artist_by_name(artist_name):
     except artist.DoesNotExist:
         return None
 
+def get_enhanced_audio_by_id(audio_id):
+            try:
+                enhanced_audio = Enhanced_audio.objects.get(Enhanced_ID=audio_id)
+                return enhanced_audio
+            except Enhanced_audio.DoesNotExist:
+                return None
 
+def get_enhanced_audio_by_name(audio_name):
+            try:
+                enhanced_audio = Enhanced_audio.objects.get(Enhanced_Name=audio_name)
+                return enhanced_audio
+            except Enhanced_audio.DoesNotExist:
+                return None
+
+def get_pre_pro_audio_by_id(audio_id):
+            try:
+                pre_pro_audio = pre_pro.objects.get(Pre_pro_ID=audio_id)
+                return pre_pro_audio
+            except pre_pro.DoesNotExist:
+                return None
+
+def get_pre_pro_audio_by_name(audio_name):
+            try:
+                pre_pro_audio = pre_pro.objects.get(Pre_pro_Name=audio_name)
+                return pre_pro_audio
+            except pre_pro.DoesNotExist:
+                return None
 
 
 class User(models.Model):
@@ -143,7 +178,9 @@ class Subscription(models.Model):
         
         # Validate End_Date
         try:
-            datetime.datetime.strptime(self.End_Date, '%m/%Y')
+            end_date = datetime.datetime.strptime(self.End_Date, '%m/%Y')
+            if end_date < datetime.datetime.now():
+                raise ValidationError("End date cannot be in the past.")
         except ValueError:
             raise ValidationError("End date must be in MM/YYYY format.")
 
