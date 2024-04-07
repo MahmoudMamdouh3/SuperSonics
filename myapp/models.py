@@ -1,5 +1,8 @@
+import datetime
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.core.validators import EmailValidator, validate_password
+
 
 # Create your models here.
 def validate_audio_file(value):
@@ -96,6 +99,31 @@ class User(models.Model):
     Country = models.CharField(max_length=100,null=True, blank=True)
     Postal_Code = models.IntegerField(null=True, blank=True)
     user_image = models.ImageField(upload_to='uploads/profile_img/',null=True, blank=True)
+    def clean(self):
+        if not self.Fname:
+            raise ValidationError("First name is required.")
+        if not self.Lname:
+            raise ValidationError("Last name is required.")
+        if not self.username:
+            raise ValidationError("Username is required.")
+        if len(self.username) < 5:
+            raise ValidationError("Username must be at least 5 characters long.")
+        if not self.password:
+            raise ValidationError("Password is required.")
+        # Validate email
+        validator = EmailValidator()
+        try:
+            validator(self.email)
+        except ValidationError:
+            raise ValidationError("Invalid email address.")
+        
+        # Validate password
+        try:
+            validate_password(self.password)
+        except ValidationError as e:
+            raise ValidationError("Invalid password: " + '; '.join(e.messages))
+        
+
 
 class Subscription(models.Model):
     Sub_ID = models.AutoField(primary_key=True)
@@ -104,7 +132,20 @@ class Subscription(models.Model):
     CVV = models.IntegerField()
     Card_Name = models.CharField(max_length=100, unique=True)
     End_Date = models.CharField(max_length=10)
-    
+    def clean(self):
+        # Validate Card_No
+        if not 15 < len(str(self.Card_No)) < 17:
+            raise ValidationError("Card number must be 16 digits long.")
+        
+        # Validate CVV
+        if not 2 < len(str(self.CVV)) < 5:
+            raise ValidationError("CVV must be 3 or 4 digits long.")
+        
+        # Validate End_Date
+        try:
+            datetime.datetime.strptime(self.End_Date, '%m/%Y')
+        except ValueError:
+            raise ValidationError("End date must be in MM/YYYY format.")
 
 class artist(models.Model):
     Artist_ID = models.AutoField(primary_key=True)
