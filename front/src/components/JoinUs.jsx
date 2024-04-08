@@ -28,8 +28,10 @@ function JoinUS() {
     setErrors({});
   };
 
-  const validateInputs = () => {
+  const validateInputs = async () => {
     const errors = {};
+
+    // Basic validation
     if (!username.trim()) {
       errors.username = "Username is required";
     }
@@ -47,6 +49,20 @@ function JoinUS() {
         errors.verifyPassword = "Passwords do not match";
       }
     }
+
+    // Check if username is already taken
+    if (username.trim()) {
+      try {
+        const response = await axios.get(`/api/check-username/${username}`);
+        if (response.data.exists) {
+          errors.username = "Username is already taken";
+        }
+      } catch (error) {
+        console.error("Error checking username availability:", error);
+        // Handle error
+      }
+    }
+
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };

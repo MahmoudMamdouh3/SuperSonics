@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/styles.css";
 
 function UploadedFiles() {
   // Sample data for uploaded files
@@ -38,18 +39,39 @@ function UploadedFiles() {
   };
 
   return (
-    <div>
+    <div className="uploaded-files-container">
       <h2>Uploaded Files</h2>
       <ul>
         {uploadedFiles.map((file) => (
-          <li key={file.id}>
-            <span>{file.fileName}</span>
-            <button onClick={() => handleDownload(file.id)}>Download</button>
-            <button onClick={() => handleShare(file.id)}>Share</button>
-            <button onClick={() => handleLike(file.id)}>Like</button>
-            <span>Likes: {file.likes}</span>
-            <span>Shares: {file.shares}</span>
-            <span>Downloads: {file.downloads}</span>
+          <li key={file.id} className="file-item">
+            <div className="file-details">
+              <span className="file-name">{file.fileName}</span>
+              <div className="file-actions">
+                <button
+                  className="action-button"
+                  onClick={() => handleDownload(file.id)}
+                >
+                  Download
+                </button>
+                <button
+                  className="action-button"
+                  onClick={() => handleShare(file.id)}
+                >
+                  Share
+                </button>
+                <button
+                  className="action-button"
+                  onClick={() => handleLike(file.id)}
+                >
+                  Like
+                </button>
+              </div>
+            </div>
+            <div className="file-stats">
+              <span className="file-stat">Likes: {file.likes}</span>
+              <span className="file-stat">Shares: {file.shares}</span>
+              <span className="file-stat">Downloads: {file.downloads}</span>
+            </div>
           </li>
         ))}
       </ul>

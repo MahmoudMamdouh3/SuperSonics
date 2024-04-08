@@ -251,3 +251,48 @@ h4 {
   padding: 20px;
   margin-top: auto; /* Push the footer to the bottom */
 }
+.uploaded-files-container {
+  margin-top: 20px;
+}
+
+.file-item {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.file-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.file-name {
+  font-weight: bold;
+}
+
+.file-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.file-stats {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.file-stat {
+  color: #666;
+  font-size: 0.9rem;
+}
