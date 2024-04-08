@@ -7,6 +7,7 @@ import {
   Button,
   Grid,
   Link,
+  Snackbar,
 } from "@mui/material";
 import {
   GoogleLoginButton,
@@ -22,6 +23,7 @@ function JoinUS() {
   const [password, setPassword] = useState("");
   const [verifyPassword, setVerifyPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState(""); // State for success message
 
   const handleToggleMode = () => {
     setIsSignUp((prevState) => !prevState);
@@ -93,10 +95,17 @@ function JoinUS() {
           password,
         });
         console.log("Sign-up successful:", response.data);
+        // Show success message
+        setSuccessMessage("Account created successfully!");
       } catch (error) {
         console.error("Sign-up error:", error.response.data);
       }
     }
+  };
+
+  // Function to close success message
+  const handleCloseSuccessMessage = () => {
+    setSuccessMessage("");
   };
 
   return (
@@ -285,6 +294,14 @@ function JoinUS() {
           </Typography>
         </div>
       </Container>
+      {/* Snackbar for success message */}
+      <Snackbar
+        open={!!successMessage}
+        autoHideDuration={6000} // Automatically close after 6 seconds
+        onClose={handleCloseSuccessMessage}
+        message={successMessage}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      />
     </div>
   );
 }
