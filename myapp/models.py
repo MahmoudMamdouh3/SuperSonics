@@ -3,6 +3,10 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.core.validators import EmailValidator
 from django.contrib.auth.password_validation import validate_password
+from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
 
 # Create your models here.
 def validate_audio_file(value):
@@ -60,7 +64,10 @@ class User(models.Model):
         except ValidationError as e:
             raise ValidationError("Invalid password: " + '; '.join(e.messages))
         
-
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_auth_token(sender, instance=None, created=False, **kwargs):
+    if created:
+        Token.objects.create(user=instance)
 
 class Subscription(models.Model):
     Sub_ID = models.AutoField(primary_key=True)
@@ -85,6 +92,10 @@ class Subscription(models.Model):
                 raise ValidationError("End date cannot be in the past.")
         except ValueError:
             raise ValidationError("End date must be in MM/YYYY format.")
+
+
+
+
 
 class artist(models.Model):
     Artist_ID = models.AutoField(primary_key=True)
