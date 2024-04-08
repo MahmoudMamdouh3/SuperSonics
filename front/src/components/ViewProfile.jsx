@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, Button, Typography, Box, Avatar } from "@mui/material";
+import { TextField, Button, Box, Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -82,9 +82,6 @@ function ViewProfile() {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <Typography variant="h4" align="center" gutterBottom>
-          View Your Profile
-        </Typography>
         <Box
           sx={{ display: "flex", justifyContent: "center", marginBottom: 2 }}
         >
