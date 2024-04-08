@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { TextField, Button, Container, Typography } from "@mui/material";
+import { TextField, Button, Box, Typography } from "@mui/material";
 import "../styles/styles.css";
+
 function PaymentForm() {
   const [formData, setFormData] = useState({
     cardNumber: "#### - #### - #### - ####",
@@ -24,11 +25,30 @@ function PaymentForm() {
   };
 
   return (
-    <Container maxWidth="sm" className="payment-form-container">
-      <Typography variant="h5" className="payment-form-header">
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      minHeight="100vh"
+    >
+      <Typography variant="h5" gutterBottom>
         Payment Information
       </Typography>
-      <form onSubmit={handleSubmit}>
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        maxWidth="400px"
+        width="100%"
+        padding="20px"
+        boxShadow="0px 0px 10px 0px rgba(0,0,0,0.1)"
+        borderRadius="8px"
+        bgcolor="#fff"
+      >
         <TextField
           fullWidth
           margin="normal"
@@ -38,7 +58,6 @@ function PaymentForm() {
           variant="outlined"
           value={formData.cardNumber}
           onChange={handleInputChange}
-          className="payment-form-input"
         />
         <TextField
           fullWidth
@@ -49,7 +68,6 @@ function PaymentForm() {
           variant="outlined"
           value={formData.expirationDate}
           onChange={handleInputChange}
-          className="payment-form-input"
         />
         <TextField
           fullWidth
@@ -60,7 +78,6 @@ function PaymentForm() {
           variant="outlined"
           value={formData.cvv}
           onChange={handleInputChange}
-          className="payment-form-input"
         />
         <TextField
           fullWidth
@@ -71,18 +88,17 @@ function PaymentForm() {
           variant="outlined"
           value={formData.fullName}
           onChange={handleInputChange}
-          className="payment-form-input"
         />
         <Button
           type="submit"
           variant="contained"
           color="primary"
-          className="payment-form-submit"
+          style={{ marginTop: "1rem" }}
         >
           Submit
         </Button>
-      </form>
-    </Container>
+      </Box>
+    </Box>
   );
 }
 

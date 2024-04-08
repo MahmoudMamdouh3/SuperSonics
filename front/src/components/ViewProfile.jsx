@@ -73,7 +73,7 @@ function ViewProfile() {
       <Box
         sx={{
           padding: "20px",
-          border: "1px solid #000", // Black border
+          border: "2px solid #000", // Black border
           borderRadius: 8,
           backdropFilter: "blur(20px)",
           position: "absolute",
@@ -94,6 +94,20 @@ function ViewProfile() {
             sx={{ width: 100, height: 100 }}
           />
         </Box>
+
+        {/* Profile picture change button */}
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleAvatarChange} // Attach handleAvatarChange to file input change
+          style={{ display: "none" }}
+          id="avatar-file-input"
+        />
+        <label htmlFor="avatar-file-input">
+          <Button variant="contained" component="span" sx={{ borderRadius: 8 }}>
+            Change Profile Picture
+          </Button>
+        </label>
 
         {/* Account information form */}
         <form onSubmit={handleSubmit}>
@@ -151,7 +165,11 @@ function ViewProfile() {
             <Button
               variant="contained"
               type="submit"
-              sx={{ fontSize: "0.8rem", padding: "6px 16px" }}
+              sx={{
+                fontSize: "0.8rem",
+                padding: "6px 16px",
+                borderRadius: 8,
+              }}
             >
               Save Changes
             </Button>
@@ -159,7 +177,11 @@ function ViewProfile() {
               variant="contained"
               color="error"
               onClick={handleDeleteAccount}
-              sx={{ fontSize: "0.8rem", padding: "6px 16px" }}
+              sx={{
+                fontSize: "0.8rem",
+                padding: "6px 16px",
+                borderRadius: 8,
+              }}
             >
               Delete Account
             </Button>
@@ -181,6 +203,7 @@ function ViewProfile() {
                 color: "white", // Set text color to white
                 fontSize: "0.8rem",
                 padding: "6px 16px",
+                borderRadius: 8,
               }}
             >
               Go to Payment Form

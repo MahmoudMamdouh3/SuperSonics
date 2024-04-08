@@ -98,6 +98,7 @@ function AudioUpload() {
         "& > *": {
           marginBottom: 2,
         },
+        borderRadius: 8, // Set border radius for the main container
       }}
     >
       <Typography variant="h4" align="center" gutterBottom color="black">
@@ -116,6 +117,7 @@ function AudioUpload() {
           variant="contained"
           color="primary"
           onClick={handleOpenArtistSelection}
+          sx={{ borderRadius: 8 }} // Set border radius for the button
         >
           Select Your Artist
         </Button>
@@ -130,6 +132,18 @@ function AudioUpload() {
         style={{ display: "none" }}
         id="audio-file-input"
       />
+      <Box sx={{ marginBottom: 2 }}>
+        <label htmlFor="audio-file-input">
+          <Button
+            variant="contained"
+            component="span"
+            fullWidth
+            sx={{ borderRadius: 8 }} // Set border radius for the button
+          >
+            {selectedAudioFile ? "Audio File Selected" : "Select Audio File"}
+          </Button>
+        </label>
+      </Box>
       <input
         type="file"
         accept=".mid,.midi"
@@ -138,15 +152,13 @@ function AudioUpload() {
         id="midi-file-input"
       />
       <Box sx={{ marginBottom: 2 }}>
-        <label htmlFor="audio-file-input">
-          <Button variant="contained" component="span" fullWidth>
-            {selectedAudioFile ? "Audio File Selected" : "Select Audio File"}
-          </Button>
-        </label>
-      </Box>
-      <Box sx={{ marginBottom: 2 }}>
         <label htmlFor="midi-file-input">
-          <Button variant="contained" component="span" fullWidth>
+          <Button
+            variant="contained"
+            component="span"
+            fullWidth
+            sx={{ borderRadius: 8 }} // Set border radius for the button
+          >
             {selectedMidiFile ? "MIDI File Selected" : "Select MIDI File"}
           </Button>
         </label>
@@ -181,7 +193,7 @@ function AudioUpload() {
         disabled={
           !selectedAudioFile || !selectedMidiFile || !selectedFormats.length
         }
-        sx={{ marginBottom: 2 }}
+        sx={{ marginBottom: 2, borderRadius: 8 }} // Set border radius for the button
       >
         Upload
       </Button>
@@ -214,6 +226,7 @@ function AudioUpload() {
                     variant="contained"
                     size="small"
                     onClick={() => handleSelectArtist(artist)}
+                    sx={{ borderRadius: 8 }} // Set border radius for the button
                   >
                     Select
                   </Button>

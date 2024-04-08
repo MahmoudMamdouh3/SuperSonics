@@ -92,7 +92,7 @@ function ContactForm() {
           name="name"
           value={formData.name} // Bind value to form state
           onChange={handleInputChange} // Attach handleInputChange to input change
-          sx={{ width: "100%", marginBottom: "10px" }}
+          sx={{ width: "100%", marginBottom: "10px", borderRadius: 8 }}
         />
         <TextField
           label="Email"
@@ -100,7 +100,7 @@ function ContactForm() {
           name="email"
           value={formData.email} // Bind value to form state
           onChange={handleInputChange} // Attach handleInputChange to input change
-          sx={{ width: "100%", marginBottom: "10px" }}
+          sx={{ width: "100%", marginBottom: "10px", borderRadius: 8 }}
         />
         <TextField
           label="Message"
@@ -110,12 +110,12 @@ function ContactForm() {
           name="message"
           value={formData.message} // Bind value to form state
           onChange={handleInputChange} // Attach handleInputChange to input change
-          sx={{ width: "100%", marginBottom: "10px" }}
+          sx={{ width: "100%", marginBottom: "10px", borderRadius: 8 }}
         />
         <Button
           variant="contained"
           type="submit" // Specify button type as submit
-          sx={{ width: "100%", marginTop: "10px" }}
+          sx={{ width: "100%", marginTop: "10px", borderRadius: 8 }}
         >
           Send
         </Button>
