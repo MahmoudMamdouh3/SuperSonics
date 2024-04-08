@@ -1,26 +1,51 @@
+import os
 import librosa
 import numpy as np
 from sklearn.decomposition import FastICA
-
-
+import scipy.signal
 
 def load_audio(audio_file_path):
-    # Load the audio file
+    """
+    Load audio file from the specified path.
+
+    Args:
+        audio_file_path (str): Path to the audio file.
+
+    Returns:
+        y (np.ndarray): Audio signal.
+        sr (int): Sampling rate.
+    """
+    if not os.path.exists(audio_file_path):
+        raise FileNotFoundError(f"Audio file '{audio_file_path}' not found.")
+    
     y, sr = librosa.load(audio_file_path, sr=None)
     return y, sr
 
 def preprocess_audio(uploaded_file):
-    # Load audio from uploaded file
-    y, sr = load_audio(uploaded_file)
+    """
+    Preprocess the uploaded audio file.
 
-    # Apply noise removal
-    y_denoised = remove_noise(y, sr)
+    Args:
+        uploaded_file (str): Path to the uploaded audio file.
 
-    # Apply other preprocessing steps as needed
-    # e.g., pitch extraction, layer separation, etc.
+    Returns:
+        y_preprocessed (np.ndarray): Preprocessed audio signal.
+        sr (int): Sampling rate.
+    """
+    try:
+        # Load audio from uploaded file
+        y, sr = load_audio(uploaded_file)
 
-    # For simplicity, let's just return the preprocessed audio data
-    return y_denoised, sr
+        # Apply noise removal
+        y_denoised = remove_noise(y, sr)
+
+        # Apply filtering to remove frequencies outside the human singing range
+        y_filtered = filtering(y_denoised, sr)
+
+        # For simplicity, let's just return the preprocessed audio data
+        return y_filtered, sr
+    except Exception as e:
+        raise RuntimeError(f"Error occurred during audio preprocessing: {str(e)}")
 
 def remove_noise(y, sr):
     # Estimate the signal power
@@ -47,12 +72,37 @@ def remove_noise(y, sr):
 
     return y_denoised
 
-def separate_layers(audio_data):
-    # Apply Independent Component Analysis (ICA) for layer separation
-    ica = FastICA(n_components=2)  # Assuming 2 layers for simplicity
-    layers = ica.fit_transform(audio_data.T)
+def filtering(y, sr, filter_type='high_pass', cutoff_freq=1000):
+    if filter_type == 'high_pass':
+        # Apply high-pass filtering
+        y_filtered = high_pass_filter(y, sr, cutoff_freq)
+    elif filter_type == 'low_pass':
+        # Apply low-pass filtering
+        y_filtered = low_pass_filter(y, sr, cutoff_freq)
+    else:
+        # If invalid filter type provided, return original audio
+        y_filtered = y
 
-    # Transpose the result back to the original shape
-    layers = layers.T
+    return y_filtered
 
-    return layers
+def high_pass_filter(y, sr, cutoff_freq):
+    # Design a high-pass filter
+    nyquist = 0.5 * sr
+    normal_cutoff = cutoff_freq / nyquist
+    b, a = scipy.signal.butter(4, normal_cutoff, btype='high', analog=False)
+
+    # Apply the filter to the audio data
+    y_filtered = scipy.signal.filtfilt(b, a, y)
+
+    return y_filtered
+
+def low_pass_filter(y, sr, cutoff_freq):
+    # Design a low-pass filter
+    nyquist = 0.5 * sr
+    normal_cutoff = cutoff_freq / nyquist
+    b, a = scipy.signal.butter(4, normal_cutoff, btype='low', analog=False)
+
+    # Apply the filter to the audio data
+    y_filtered = scipy.signal.filtfilt(b, a, y)
+
+    return y_filtered
