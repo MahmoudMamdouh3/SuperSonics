@@ -1,5 +1,5 @@
 """
-URL configuration for supersonic project.
+URL configuration for SuperSonic project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -16,7 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
+from Database.views import *
+
+router = routers.DefaultRouter()
+router.register(r'Account', AccountViewSet)
+router.register(r'Audio', AudioViewSet)
+router.register(r'Pre_pro_audio', Pre_pro_audioViewSet)
+router.register(r'Enhanced_audio', Enhanced_audioViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', include(router.urls)),
+    path("admin/", admin.site.urls),
 ]
+
+# urlpatterns = [
+#     path("admin/", admin.site.urls),
+# ]
