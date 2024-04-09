@@ -21,3 +21,19 @@ class Enhanced_audioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Enhanced_audio
         fields = '__all__'        
+
+class upscaled_audioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = upscaled_audio
+        fields = '__all__'
+
+class RVC_AudioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RVC_Audio
+        fields = '__all__'
+
+class EvaluationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Evaluation
+        fields = '__all__'  
+        

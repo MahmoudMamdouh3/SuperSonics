@@ -25,6 +25,10 @@ router.register(r'Account', AccountViewSet)
 router.register(r'Audio', AudioViewSet)
 router.register(r'Pre_pro_audio', Pre_pro_audioViewSet)
 router.register(r'Enhanced_audio', Enhanced_audioViewSet)
+router.register(r'upscaled_audio', upscaled_audioViewSet)
+router.register(r'RVC_Audio', RVC_AudioViewSet)
+router.register(r'Evaluation', EvaluationViewSet)
+
 
 urlpatterns = [
     path('', include(router.urls)),
