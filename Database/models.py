@@ -11,7 +11,16 @@ def validate_file_video(value):
     valid_extensions = ['mp4', 'avi', 'mov', 'flv', 'wmv']
     validator = FileExtensionValidator(valid_extensions)
     validator(value)
+    
+def get_video_subtitles(value):
+        valid_extensions = ['mp4']
+        if not any(value.name.endswith(ext) for ext in valid_extensions):
+            raise ValidationError("Invalid file type: only .mp4 allowed.")
 
+def handle_video_upload(user, file, video_name):
+    validate_audio_file(file)
+    video = Audio(user=user, Video_Name=video_name, Audio=file)
+    video.save()
 
 # Create your models here.
 class Account(models.Model):
@@ -73,6 +82,13 @@ class Evaluation(models.Model):
     subjective_test = models.TextField(default='')
     Snr = models.IntegerField(default=0)
  
-   
+class Video(models.Model):
+    Video_ID = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    Video_Name = models.CharField(max_length=100)
+    Video = models.FileField(upload_to='uploads/up_video/',validators=[validate_video_file],null=True, blank=True)   
+    size = models.IntegerField(null=True, blank=True)
+    date = models.DateField(auto_created=True,auto_now=True)
+    time = models.TimeField(auto_created=True,auto_now=True)   
 
     
