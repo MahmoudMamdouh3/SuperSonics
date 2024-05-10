@@ -30,8 +30,7 @@ class Audio (models.Model):
     Date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(Account, on_delete=models.CASCADE)  
     artist_name = models.CharField(max_length=100, default='')
-    video= models.FileField(upload_to='videos/',validators=[validate_file_video], default='')  
-
+    video = models.FileField(upload_to='videos/', validators=[validate_file_video], default='', null=True, blank=True)
 
 class Pre_pro_audio(models.Model):
     name = models.CharField(max_length=100)
@@ -47,7 +46,7 @@ class upscaled_audio(models.Model):
     Date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(Account, on_delete=models.CASCADE)  
     artist_name = models.CharField(max_length=100, default='')
-    video= models.FileField(upload_to='videos/',validators=[validate_file_video], default='')   
+    video= models.FileField(upload_to='videos/',validators=[validate_file_video], default='', null=True, blank=True)   
 
 class RVC_Audio(models.Model):
     name = models.CharField(max_length=100)
@@ -63,7 +62,8 @@ class Enhanced_audio(models.Model):
     Date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(Account, on_delete=models.CASCADE)  
     artist_name = models.CharField(max_length=100, default='')
-    video= models.FileField(upload_to='videos/',validators=[validate_file_video], default='')     
+    video = models.FileField(upload_to='videos/', validators=[validate_file_video], default='', null=True, blank=True)
+     
 
 
 class Evaluation(models.Model):

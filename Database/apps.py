@@ -1,4 +1,7 @@
 from django.apps import AppConfig
+from flask import Flask, request, jsonify
+
+
 
 
 class DatabaseConfig(AppConfig):
