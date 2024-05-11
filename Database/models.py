@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.core.validators import FileExtensionValidator
+from django.contrib.auth.hashers import make_password
+
 
 def validate_file_audio(value):
     valid_extensions = ['mp3', 'wav', 'ogg', 'flac', 'aac']
@@ -34,6 +36,9 @@ class account(models.Model):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
+    def set_password(self, raw_password):
+        self.password = make_password(raw_password)
+        self.save()
 
 
 class Audio (models.Model):
