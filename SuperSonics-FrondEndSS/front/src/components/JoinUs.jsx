@@ -57,7 +57,7 @@ function JoinUS() {
     e.preventDefault();
     if (validateInputs()) {
       try {
-        const response = await axios.post(`${baseUrl}/api/signup/`, {
+        const response = await axios.post(`${baseUrl}/login/`, {
           username,
           password,
         });
@@ -72,7 +72,7 @@ function JoinUS() {
     e.preventDefault();
     if (validateInputs()) {
       try {
-        const response = await axios.post(`${baseUrl}/api/signup/`, {
+        const response = await axios.post(`${baseUrl}/account/`, {
           username,
           email,
           password,

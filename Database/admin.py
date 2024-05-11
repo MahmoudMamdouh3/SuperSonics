@@ -9,11 +9,11 @@ from .models import *
 class UserAdmin(admin.ModelAdmin):
     list_display = ('username', 'email', 'password')  # Customize the fields displayed in the user list
 
-admin.site.register(Account, UserAdmin)
+admin.site.register(account, UserAdmin)
 admin.site.register(Audio)
 admin.site.register(Pre_pro_audio)
 admin.site.register(Enhanced_audio)
 admin.site.register(upscaled_audio)
 admin.site.register(RVC_Audio)  
 admin.site.register(Evaluation)
-admin.site.register(Video)
+# admin.site.register(Video)

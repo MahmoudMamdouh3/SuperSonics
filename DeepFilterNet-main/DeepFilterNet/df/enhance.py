@@ -5,8 +5,7 @@ import sys
 # Append your project's directory to sys.path
 sys.path.append('Z:/SuperSonics')
 
-# Print sys.path to verify the directory inclusion
-print(sys.path)
+
 
 # Set the DJANGO_SETTINGS_MODULE environment variable
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "SuperSonic.settings")
@@ -71,22 +70,30 @@ class AudioDataset(Dataset):
 
 def main(args):
     #settings.configure(INSTALLED_APPS=['Database'])
-    
+    if len(sys.argv) < 2:
+        print("Please provide an audio file name as a command-line argument.")
+        sys.exit(1)
+
+    audio_file_name = sys.argv[1]
     conn = sqlite3.connect('Database.sqlite3')
     cur = conn.cursor()
 
-# Define and execute SQL query to fetch audio data and filename
-    cur.execute("SELECT audio, name , user_id FROM Database_audio ORDER BY id ASC LIMIT 1")    
+# # Define and execute SQL query to fetch audio data
+    print (audio_file_name)
+    cur.execute("SELECT audio FROM Database_audio WHERE name = ?", (audio_file_name,))
     row = cur.fetchone()
-    audio_data = row[0]  # Assuming audio_data is stored as binary in the database
-    filename = row[1]  # Assuming filename is stored in the second column
-    user_id = row[2]
-# Close cursor and connection
+    if row is None:
+        print(f"No audio data found for file name {audio_file_name}")
+        sys.exit(1)
+
+    audio_data = row[0] 
+
+# # Close cursor and connection
     cur.close()
     conn.close()
 
 # Save the audio data to a file with the fetched filename
-    # with open(filename, 'wb') as f:
+    # with open('temp.wav', 'wb') as f:
     #     f.write(audio_data)
 
     model, df_state, suffix, epoch = init_df(
@@ -146,7 +153,7 @@ def main(args):
 
         # Save the output audio file and its name in the database
         with open(output_audio_file, 'rb') as f:
-            audio_instance = upscaled_audio(audio=File(f), name=output_file_name , user_id=user_id)
+            audio_instance = upscaled_audio(audio=File(f), name=output_file_name  )#user_id=user_id
             audio_instance.save()
 
 def get_model_basedir(m: Optional[str]) -> str:

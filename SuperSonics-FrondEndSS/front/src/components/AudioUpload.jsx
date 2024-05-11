@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from 'axios'; 
+import { spawn } from 'child_process';
 import {
   Box,
   Typography,
@@ -18,6 +20,7 @@ import {
 } from "@mui/material";
 
 function AudioUpload() {
+  const baseUrl = "http://127.0.0.1:8000";  // Update to match your server
   const [selectedAudioFile, setSelectedAudioFile] = useState(null);
   const [selectedMidiFile, setSelectedMidiFile] = useState(null);
   const [selectedFormats, setSelectedFormats] = useState([]); // State to store selected formats
@@ -55,11 +58,24 @@ function AudioUpload() {
   };
 
   const handleUpload = () => {
-    // Handle file upload logic
-    console.log("Audio file uploaded:", selectedAudioFile);
-    console.log("MIDI file uploaded:", selectedMidiFile);
-    console.log("Selected formats:", selectedFormats);
-  };
+    const formData = new FormData();
+    formData.append('audio', selectedAudioFile);
+
+    axios.post(`${baseUrl}/audio/`, formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    }).then(response => {
+        if (selectedFormats.includes("UpScaling")) {
+            console.log(response);
+            let audioFileName = selectedAudioFile.name; // Get the name of the uploaded file
+            
+            axios.post(`${baseUrl}/run-python-script/`, { audioFileName: selectedAudioFile.name })
+              .then(response => console.log(response.data.message))
+              .catch(error => console.error(error.response.data.error));
+        }
+    });
+};
 
   const handleOpenArtistSelection = () => {
     setOpenArtistSelection(true);
@@ -169,7 +185,7 @@ function AudioUpload() {
         fullWidth
         onClick={handleUpload}
         disabled={
-          !selectedAudioFile || !selectedMidiFile || !selectedFormats.length
+          !selectedAudioFile  || !selectedFormats.length
         }
         sx={{ marginBottom: 2 }}
       >

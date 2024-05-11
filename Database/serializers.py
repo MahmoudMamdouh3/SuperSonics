@@ -4,7 +4,7 @@ from .models import *
 
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Account
+        model = account
         fields = '__all__'
 
 class AudioSerializer(serializers.ModelSerializer):

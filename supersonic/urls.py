@@ -24,18 +24,22 @@ from django.urls import path
 
 
 router = routers.DefaultRouter()
-router.register(r'Account', AccountViewSet)
-router.register(r'Audio', AudioViewSet)
+router.register(r'account', AccountViewSet)
+router.register(r'audio', AudioViewSet)
 router.register(r'Pre_pro_audio', Pre_pro_audioViewSet)
 router.register(r'Enhanced_audio', Enhanced_audioViewSet)
 router.register(r'upscaled_audio', upscaled_audioViewSet)
 router.register(r'RVC_Audio', RVC_AudioViewSet)
 router.register(r'Evaluation', EvaluationViewSet)
+#router.register(r'run-python-script', RunPythonScriptView.as_view())  # Add this line
 
 
 urlpatterns = [
     path('', include(router.urls)),
     path("admin/", admin.site.urls),
+    path("run-python-script/", RunPythonScriptView.as_view()),  # Add this line
+    path('login/', LoginView.as_view()),  # Add this line
+    
     
 ]
 

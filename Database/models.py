@@ -17,13 +17,13 @@ def get_video_subtitles(value):
         if not any(value.name.endswith(ext) for ext in valid_extensions):
             raise ValidationError("Invalid file type: only .mp4 allowed.")
 
-def handle_video_upload(user, file, video_name):
-    validate_audio_file(file)
-    video = Audio(user=user, Video_Name=video_name, Audio=file)
-    video.save()
+# def handle_video_upload(user, file, video_name):
+#     validate_audio_file(file)
+#     video = Audio(user=user, Video_Name=video_name, Audio=file)
+#     video.save()
 
 # Create your models here.
-class Account(models.Model):
+class account(models.Model):
     username = models.CharField(max_length=100, unique=True)
     email = models.EmailField(max_length=100)
     password = models.CharField(max_length=100)
@@ -31,13 +31,15 @@ class Account(models.Model):
     Lname= models.CharField(max_length=100, default='')
     DateofBirth = models.DateField(default='2000-01-01')
     profile_image = models.ImageField(upload_to='profile/', default='profile/default.jpg')
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
 
 
 class Audio (models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100 , default='')
     audio = models.FileField(upload_to='audios/',validators=[validate_file_audio])
     Date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)  
+    #user = models.ForeignKey(Account, on_delete=models.CASCADE)  
     artist_name = models.CharField(max_length=100, default='')
     video = models.FileField(upload_to='videos/', validators=[validate_file_video], default='', null=True, blank=True)
 
@@ -45,7 +47,7 @@ class Pre_pro_audio(models.Model):
     name = models.CharField(max_length=100)
     audio = models.FileField(upload_to='audios/',validators=[validate_file_audio])
     Date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)  
+    user = models.ForeignKey(account, on_delete=models.CASCADE)  
     artist_name = models.CharField(max_length=100, default='')
     video= models.FileField(upload_to='videos/',validators=[validate_file_video], default='')
 
@@ -53,7 +55,8 @@ class upscaled_audio(models.Model):
     name = models.CharField(max_length=100)
     audio = models.FileField(upload_to='audios/',validators=[validate_file_audio])
     Date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)  
+    #
+    # user = models.ForeignKey(Account, on_delete=models.CASCADE)  
     artist_name = models.CharField(max_length=100, default='')
     video= models.FileField(upload_to='videos/',validators=[validate_file_video], default='', null=True, blank=True)   
 
@@ -61,7 +64,7 @@ class RVC_Audio(models.Model):
     name = models.CharField(max_length=100)
     audio = models.FileField(upload_to='audios/',validators=[validate_file_audio])
     Date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)  
+    user = models.ForeignKey(account, on_delete=models.CASCADE)  
     artist_name = models.CharField(max_length=100, default='')
     video= models.FileField(upload_to='videos/',validators=[validate_file_video], default='')     
 
@@ -69,7 +72,7 @@ class Enhanced_audio(models.Model):
     name = models.CharField(max_length=100)
     audio = models.FileField(upload_to='audios/',validators=[validate_file_audio])
     Date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)  
+    user = models.ForeignKey(account, on_delete=models.CASCADE)  
     artist_name = models.CharField(max_length=100, default='')
     video = models.FileField(upload_to='videos/', validators=[validate_file_video], default='', null=True, blank=True)
      
@@ -82,13 +85,13 @@ class Evaluation(models.Model):
     subjective_test = models.TextField(default='')
     Snr = models.IntegerField(default=0)
  
-class Video(models.Model):
-    Video_ID = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    Video_Name = models.CharField(max_length=100)
-    Video = models.FileField(upload_to='uploads/up_video/',validators=[validate_video_file],null=True, blank=True)   
-    size = models.IntegerField(null=True, blank=True)
-    date = models.DateField(auto_created=True,auto_now=True)
-    time = models.TimeField(auto_created=True,auto_now=True)   
+# class Video(models.Model):
+#     Video_ID = models.AutoField(primary_key=True)
+#     user = models.ForeignKey(Account, on_delete=models.CASCADE)
+#     Video_Name = models.CharField(max_length=100)
+#     Video = models.FileField(upload_to='uploads/up_video/',validators=[validate_video_file],null=True, blank=True)   
+#     size = models.IntegerField(null=True, blank=True)
+#     date = models.DateField(auto_created=True,auto_now=True)
+#     time = models.TimeField(auto_created=True,auto_now=True)   
 
     
