@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios"; // Import Axios
+import axios from "axios";
 import {
   Container,
   Typography,
@@ -7,6 +7,7 @@ import {
   Button,
   Grid,
   Link,
+  Snackbar,
 } from "@mui/material";
 import {
   GoogleLoginButton,
@@ -22,16 +23,18 @@ function JoinUS() {
   const [password, setPassword] = useState("");
   const [verifyPassword, setVerifyPassword] = useState("");
   const [errors, setErrors] = useState({});
-
-  const baseUrl = "http://127.0.0.1:8000";  // Update to match your server
-
+  const [successMessage, setSuccessMessage] = useState(""); // State for success message
+  const baseUrl = "http://localhost:8000";  // Make sure to define baseUrl
+  const url = `${baseUrl}/login/`;  // Use backticks for string interpolation
   const handleToggleMode = () => {
     setIsSignUp((prevState) => !prevState);
     setErrors({});
   };
 
-  const validateInputs = () => {
+  const validateInputs = async () => {
     const errors = {};
+  
+    // Basic validation
     if (!username.trim()) {
       errors.username = "Username is required";
     }
@@ -48,26 +51,39 @@ function JoinUS() {
       if (password !== verifyPassword) {
         errors.verifyPassword = "Passwords do not match";
       }
+  
+      // Check if username is already taken
+      if (username.trim()) {
+        try {
+          const response = await axios.get(`${baseUrl}/check-username/?username=${username.trim()}`);
+          if (response.data.exists) {
+            errors.username = "Username is already taken";
+          }
+        } catch (error) {
+          console.error("Error checking username availability:", error);
+          // Handle error
+        }
+      }
     }
+  
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-    if (validateInputs()) {
-      try {
-        const response = await axios.post(`${baseUrl}/login/`, {
-          username,
-          password,
-        });
-        console.log("Sign-in successful:", response.data);
-      } catch (error) {
-        console.error("Sign-in error:", error.response.data);
-      }
+  
+    try {
+      const response = await axios.post(`${baseUrl}/login/`, {
+        username,
+        password,
+      });
+      console.log("Sign-in successful:", response.data);
+    } catch (error) {
+      console.error("Sign-in error:", error.response.data);
     }
   };
-  
+
   const handleSignUp = async (e) => {
     e.preventDefault();
     if (validateInputs()) {
@@ -75,13 +91,21 @@ function JoinUS() {
         const response = await axios.post(`${baseUrl}/account/`, {
           username,
           email,
+          
           password,
         });
         console.log("Sign-up successful:", response.data);
+        // Show success message
+        setSuccessMessage("Account created successfully!");
       } catch (error) {
         console.error("Sign-up error:", error.response.data);
       }
     }
+  };
+
+  // Function to close success message
+  const handleCloseSuccessMessage = () => {
+    setSuccessMessage("");
   };
 
   return (
@@ -127,7 +151,7 @@ function JoinUS() {
                   onChange={(e) => setUsername(e.target.value)}
                   error={!!errors.username}
                   helperText={errors.username}
-                  size="small" // Added size attribute
+                  size="small"
                 />
                 <TextField
                   fullWidth
@@ -139,7 +163,7 @@ function JoinUS() {
                   onChange={(e) => setEmail(e.target.value)}
                   error={!!errors.email}
                   helperText={errors.email}
-                  size="small" // Added size attribute
+                  size="small"
                 />
                 <TextField
                   fullWidth
@@ -152,7 +176,7 @@ function JoinUS() {
                   onChange={(e) => setPassword(e.target.value)}
                   error={!!errors.password}
                   helperText={errors.password}
-                  size="small" // Added size attribute
+                  size="small"
                 />
                 <TextField
                   fullWidth
@@ -165,7 +189,7 @@ function JoinUS() {
                   onChange={(e) => setVerifyPassword(e.target.value)}
                   error={!!errors.verifyPassword}
                   helperText={errors.verifyPassword}
-                  size="small" // Added size attribute
+                  size="small"
                 />
                 <TextField
                   fullWidth
@@ -186,7 +210,7 @@ function JoinUS() {
                   }}
                   error={!!errors.dob}
                   helperText={errors.dob}
-                  size="small" // Added size attribute
+                  size="small"
                 />
               </>
             )}
@@ -203,7 +227,7 @@ function JoinUS() {
                   onChange={(e) => setUsername(e.target.value)}
                   error={!!errors.username}
                   helperText={errors.username}
-                  size="small" // Added size attribute
+                  size="small"
                 />
                 <TextField
                   fullWidth
@@ -216,7 +240,7 @@ function JoinUS() {
                   onChange={(e) => setPassword(e.target.value)}
                   error={!!errors.password}
                   helperText={errors.password}
-                  size="small" // Added size attribute
+                  size="small"
                 />
               </>
             )}
@@ -227,7 +251,7 @@ function JoinUS() {
               fullWidth
               style={{ marginTop: "1rem", fontSize: "0.8rem" }}
               type="submit"
-              size="small" // Added size attribute
+              size="small"
             >
               {isSignUp ? "Sign Up" : "Sign In"}
             </Button>
@@ -270,6 +294,29 @@ function JoinUS() {
           </Typography>
         </div>
       </Container>
+      {/* Add the PNG image */}
+      <div
+        style={{
+          position: "absolute",
+          top: "60%",
+          right: "100px",
+          transform: "translateY(-50%)",
+        }}
+      >
+        <img
+          src="../assets/join-us-today960.png"
+          alt=""
+          style={{ width: "500px", height: "300px" }}
+        />
+      </div>
+
+      <Snackbar
+        open={!!successMessage}
+        autoHideDuration={6000}
+        onClose={handleCloseSuccessMessage}
+        message={successMessage}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      />
     </div>
   );
 }

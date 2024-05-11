@@ -5,8 +5,8 @@ body {
   font-family: "Rubik", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: lightslategray;
-  background-image: url("/assets/technology-background-design-in-white-color-free-vector.jpg");
+
+  background-image: url("/webappback.jpg");
 
   background-size: cover;
   background-position: center;

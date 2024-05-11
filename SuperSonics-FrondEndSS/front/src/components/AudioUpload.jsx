@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import axios from 'axios'; 
-import { spawn } from 'child_process';
+
 import {
   Box,
   Typography,
   Button,
-  MenuItem,
+  //MenuItem,
   Dialog,
   DialogTitle,
   DialogContent,
@@ -13,19 +12,24 @@ import {
   Grid,
   Avatar,
   Checkbox,
-  ListItemText,
-  Select,
+  //ListItemText,
   FormControl,
-  InputLabel,
+  //InputLabel,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
 } from "@mui/material";
+import axios from "axios"; // Import Axios
 
 function AudioUpload() {
   const baseUrl = "http://127.0.0.1:8000";  // Update to match your server
+  const [isUpscalingChecked, setUpscalingChecked] = useState(false);
+  const [isRetrievalChecked, setRetrievalChecked] = useState(false);
   const [selectedAudioFile, setSelectedAudioFile] = useState(null);
   const [selectedMidiFile, setSelectedMidiFile] = useState(null);
-  const [selectedFormats, setSelectedFormats] = useState([]); // State to store selected formats
+  const [selectedGender, setSelectedGender] = useState("female"); // Default to female
   const [openArtistSelection, setOpenArtistSelection] = useState(false);
-  const [selectedArtist, setSelectedArtist] = useState(""); // State to store selected artist
+  const [selectedArtist, setSelectedArtist] = useState("");
   const [artistCounts, setArtistCounts] = useState({
     "Amr Diab": 0,
     "Om Kalthoum": 0,
@@ -34,8 +38,6 @@ function AudioUpload() {
     Abdelwahab: 0,
     "Mickael Jackson": 0,
   });
-
-  // Define image URLs for each artist
   const [artistImages] = useState({
     "Amr Diab": "/assets/amrdiab.jpeg",
     "Om Kalthoum": "/assets/omkalthoum.jpeg",
@@ -53,8 +55,8 @@ function AudioUpload() {
     setSelectedMidiFile(event.target.files[0]);
   };
 
-  const handleFormatChange = (event) => {
-    setSelectedFormats(event.target.value);
+  const handleGenderChange = (event) => {
+    setSelectedGender(event.target.value);
   };
 
   const handleUpload = () => {
@@ -66,15 +68,18 @@ function AudioUpload() {
             'Content-Type': 'multipart/form-data'
         }
     }).then(response => {
-        if (selectedFormats.includes("UpScaling")) {
-            console.log(response);
-            let audioFileName = selectedAudioFile.name; // Get the name of the uploaded file
-            
-            axios.post(`${baseUrl}/run-python-script/`, { audioFileName: selectedAudioFile.name })
-              .then(response => console.log(response.data.message))
-              .catch(error => console.error(error.response.data.error));
-        }
-    });
+      // Check if the "Upscaling" checkbox is checked
+      const upscalingChecked = document.getElementById('upscaling-checkbox').checked;
+
+      if (upscalingChecked) {
+          console.log(response);
+          let audioFileName = selectedAudioFile.name; // Get the name of the uploaded file
+          
+          axios.post(`${baseUrl}/run-python-script/`, { audioFileName: selectedAudioFile.name })
+            .then(response => console.log(response.data.message))
+            .catch(error => console.error(error.response.data.error));
+      }
+  });
 };
 
   const handleOpenArtistSelection = () => {
@@ -86,7 +91,7 @@ function AudioUpload() {
   };
 
   const handleSelectArtist = (artist) => {
-    setSelectedArtist(artist); // Set the selected artist
+    setSelectedArtist(artist);
     const updatedCounts = { ...artistCounts };
     updatedCounts[artist]++;
     setArtistCounts(updatedCounts);
@@ -96,101 +101,162 @@ function AudioUpload() {
   return (
     <Box
       sx={{
+        display: "flex",
+        flexDirection: "row",
         height: "100vh",
-        maxWidth: 400,
-        margin: "auto",
-        marginTop: 10,
-        padding: 2,
-        "& > *": {
-          marginBottom: 2,
-        },
       }}
     >
-      <Typography variant="h4" align="center" gutterBottom color="black">
-        File Upload
-      </Typography>
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginBottom: 2,
+          maxWidth: 400,
+          margin: "auto",
+          marginTop: 10,
+          marginLeft: 35,
+          padding: 2,
+          "& > *": {
+            marginBottom: 2,
+          },
+          borderRadius: 8,
         }}
       >
+        <Typography variant="h4" align="center" gutterBottom color="black">
+          File Upload
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginBottom: 2,
+          }}
+        >
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleOpenArtistSelection}
+            sx={{ borderRadius: 8, width: "100%" }} // Set border radius for the button and width to 100%
+          >
+            Select Your Artist
+          </Button>
+          <Typography
+            variant="body1"
+            color="textSecondary"
+            sx={{ width: 300, marginTop: 2 }}
+          >
+            Selected Artist: {selectedArtist}
+          </Typography>
+        </Box>
+        <input
+          type="file"
+          accept="audio/*"
+          onChange={handleAudioFileChange}
+          style={{ display: "none" }}
+          id="audio-file-input"
+        />
+        <Box sx={{ marginBottom: 2 }}>
+          <label htmlFor="audio-file-input">
+            <Button
+              variant="contained"
+              component="span"
+              fullWidth
+              sx={{ borderRadius: 8, width: 400 }} // Set border radius for the button
+            >
+              {selectedAudioFile ? "Audio File Selected" : "Select Audio File"}
+            </Button>
+          </label>
+        </Box>
+        <input
+          type="file"
+          accept=".mid,.midi"
+          onChange={handleMidiFileChange}
+          style={{ display: "none" }}
+          id="midi-file-input"
+        />
+        <Box sx={{ marginBottom: 2 }}>
+          <label htmlFor="midi-file-input">
+            <Button
+              variant="contained"
+              component="span"
+              fullWidth
+              sx={{ borderRadius: 8 }} // Set border radius for the button
+            >
+              {selectedMidiFile ? "MIDI File Selected" : "Select MIDI File"}
+            </Button>
+          </label>
+          <Typography
+            variant="body1"
+            color="textSecondary"
+            sx={{ marginTop: 2 }}
+          >
+            Choose Enhancements:
+          </Typography>
+          <Box sx={{ display: "flex", flexDirection: "row", marginTop: 1 }}>
+          <FormControlLabel control={<Checkbox id="upscaling-checkbox" checked={isUpscalingChecked} 
+      onChange={(e) => setUpscalingChecked(e.target.checked)}/>} label="Upscaling" />
+
+<FormControlLabel 
+  control={
+    <Checkbox 
+      checked={isRetrievalChecked} 
+      onChange={(e) => setRetrievalChecked(e.target.checked)}
+    />
+  } 
+  label="Retrieval Voice Conversion" 
+/>
+          </Box>
+        </Box>
+
+        <FormControl component="fieldset">
+          <RadioGroup
+            row
+            aria-label="gender"
+            name="gender"
+            value={selectedGender}
+            onChange={handleGenderChange}
+          >
+            <FormControlLabel
+              value="female"
+              control={<Radio />}
+              label="Female"
+            />
+            <FormControlLabel value="male" control={<Radio />} label="Male" />
+          </RadioGroup>
+        </FormControl>
         <Button
           variant="contained"
           color="primary"
-          onClick={handleOpenArtistSelection}
+          fullWidth
+          onClick={handleUpload}
+          disabled={!selectedAudioFile && !selectedMidiFile || (!isUpscalingChecked && !isRetrievalChecked)}
+
+
+
+          sx={{ marginBottom: 2, borderRadius: 8 }} // Set border radius for the button
         >
-          Select Your Artist
+          Upload
         </Button>
-        <Typography variant="body1" color="textSecondary">
-          Selected Artist: {selectedArtist}
-        </Typography>
       </Box>
-      <input
-        type="file"
-        accept="audio/*"
-        onChange={handleAudioFileChange}
-        style={{ display: "none" }}
-        id="audio-file-input"
-      />
-      <input
-        type="file"
-        accept=".mid,.midi"
-        onChange={handleMidiFileChange}
-        style={{ display: "none" }}
-        id="midi-file-input"
-      />
-      <Box sx={{ marginBottom: 2 }}>
-        <label htmlFor="audio-file-input">
-          <Button variant="contained" component="span" fullWidth>
-            {selectedAudioFile ? "Audio File Selected" : "Select Audio File"}
-          </Button>
-        </label>
-      </Box>
-      <Box sx={{ marginBottom: 2 }}>
-        <label htmlFor="midi-file-input">
-          <Button variant="contained" component="span" fullWidth>
-            {selectedMidiFile ? "MIDI File Selected" : "Select MIDI File"}
-          </Button>
-        </label>
-      </Box>
-      <FormControl fullWidth sx={{ marginBottom: 2 }}>
-        <InputLabel id="format-select-label">Select Enhancement</InputLabel>
-        <Select
-          labelId="format-select-label"
-          id="format-select"
-          multiple
-          value={selectedFormats}
-          onChange={handleFormatChange}
-          renderValue={(selected) => selected.join(", ")}
-        >
-          <MenuItem value="UpScaling">
-            <Checkbox checked={selectedFormats.includes("UpScaling")} />
-            <ListItemText primary="UpScaling" />
-          </MenuItem>
-          <MenuItem value="Retrieval Voice Conversion">
-            <Checkbox
-              checked={selectedFormats.includes("Retrieval Voice Conversion")}
-            />
-            <ListItemText primary="Retrieval Voice Conversion" />
-          </MenuItem>
-        </Select>
-      </FormControl>
-      <Button
-        variant="contained"
-        color="primary"
-        fullWidth
-        onClick={handleUpload}
-        disabled={
-          !selectedAudioFile  || !selectedFormats.length
-        }
-        sx={{ marginBottom: 2 }}
+      <Box
+        sx={{
+          flex: 2,
+          backgroundColor: "#f9f9f9",
+          padding: 3,
+          borderRadius: 8,
+          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)", // Add a subtle shadow
+        }}
       >
-        Upload
-      </Button>
+        {/* This box will contain the partition for enhanced audios */}
+        <Typography
+          variant="h6"
+          align="center"
+          gutterBottom
+          color="textPrimary"
+        >
+          Enhanced Audios
+        </Typography>
+        {/* Add your UI elements for displaying enhanced audios here */}
+      </Box>
 
       <Dialog open={openArtistSelection} onClose={handleCloseArtistSelection}>
         <DialogTitle>Select Your Favorite Artist</DialogTitle>
@@ -201,8 +267,8 @@ function AudioUpload() {
               <Grid item xs={4} key={index}>
                 <Avatar
                   alt={artist}
-                  src={artistImages[artist]} // Use dynamic image URLs
-                  sx={{ width: 150, height: 150, margin: "auto" }} // Increased image size
+                  src={artistImages[artist]}
+                  sx={{ width: 150, height: 150, margin: "auto" }}
                 />
                 <Typography
                   variant="subtitle1"
@@ -220,8 +286,9 @@ function AudioUpload() {
                     variant="contained"
                     size="small"
                     onClick={() => handleSelectArtist(artist)}
+                    sx={{ borderRadius: 8 }} // Set border radius for the button
                   >
-                    Select
+                    Selected artist
                   </Button>
                 </Box>
               </Grid>

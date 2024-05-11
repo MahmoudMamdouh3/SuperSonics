@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-kx)og@s%qr80$91e4oep_ym#ivls64$o^g0jg_c^da-!egz452
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTHENTICATION_BACKENDS = ['Database.backends.AccountBackend']
 
 # Application definition
 

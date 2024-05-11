@@ -8,13 +8,20 @@ import os
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from subprocess import run, PIPE
-import sys
+from django.views import View
 
-import os  # Add this import at the top of your file
+from django.http import JsonResponse
 from django.contrib.auth import authenticate
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+
+
+def get_file_names(request):
+    files = Audio.objects.all()
+    file_names = [file.name for file in files]  # Corrected line
+    return JsonResponse({'fileNames': file_names}, safe=False)
 
 class LoginView(APIView):
     def post(self, request, format=None):
@@ -24,19 +31,30 @@ class LoginView(APIView):
 
         print(f"Attempting to authenticate user: {username} with password: {password}")
 
-        user = authenticate(username=username, password=password)
+        account = authenticate(username=username, password=password)
 
-        if user is not None:
-            print(f"Authenticated user: {username}, is_active: {user.is_active}")
-            if user.is_active:
-                return Response({'status': 'success'}, status=status.HTTP_200_OK)
+        if account is not None:
+            print(f"Authenticated user: {username}, is_active: {account.is_active}")
+            if account.is_active:
+                if account.is_superuser:
+                    print(f"Superuser {username} attempted to authenticate")
+                    return Response({'status': 'Unauthorized - superusers cannot authenticate with this view'}, status=status.HTTP_401_UNAUTHORIZED)
+                else:
+                    return Response({'status': 'success'}, status=status.HTTP_200_OK)
             else:
                 return Response({'status': 'Unauthorized - user is inactive'}, status=status.HTTP_401_UNAUTHORIZED)
         else:
             print(f"Failed to authenticate user: {username}")
             return Response({'status': 'Unauthorized'}, status=status.HTTP_401_UNAUTHORIZED)
 
-
+class CheckUsernameView(View):
+    def get(self, request, *args, **kwargs):
+        username = request.GET.get('username')
+        if username:
+            exists = account.objects.filter(username__iexact=username).exists()
+            return JsonResponse({'exists': exists})
+        else:
+            return JsonResponse({'error': 'Username not provided'}, status=400)
 
 class RunPythonScriptView(APIView):
     def post(self, request, format=None):

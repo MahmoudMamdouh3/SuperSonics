@@ -26,7 +26,7 @@
   font-size: small;
 
   &:hover {
-    color: white;
+    color: rgb(82, 76, 192);
   }
 }
 
@@ -245,9 +245,282 @@ h4 {
   flex-direction: column;
   min-height: 100vh;
 }
+/* Footer.css */
+
+.footer-container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  margin-top: auto; /* Push the footer to the bottom */
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
 
 .footer {
   background-color: #f8f9fa;
   padding: 20px;
   margin-top: auto; /* Push the footer to the bottom */
+}
+.uploaded-files-container {
+  font-family: Arial, sans-serif;
+  max-width: 600px; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center horizontally */
+  text-align: center; /* Center-align text */
+}
+
+.file-item {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.file-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.file-name {
+  font-weight: bold;
+}
+
+.file-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.file-stats {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.file-stat {
+  color: #666;
+  font-size: 0.9rem;
+}
+/* Styles for the uploaded files container */
+.uploaded-files-container {
+  font-family: Arial, sans-serif;
+}
+
+/* Styles for each uploaded file item */
+.file-item {
+  list-style: none;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-bottom: 15px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the file details section */
+.file-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Styles for the file name */
+.file-name {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Styles for the file actions section */
+.file-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Styles for the action buttons */
+.action-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: blue;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: green;
+}
+
+/* Styles for the file stats section */
+.file-stats {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+}
+
+/* Styles for the file statistics */
+.file-stat {
+  font-size: 12px;
+  color: #666;
+}
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
+.uploaded-files-container {
+  font-family: Arial, sans-serif;
+  max-width: 600px; /* Adjust the maximum width as needed */
+}
+
+.admin-dashboard-container {
+  min-height: 80vh; /* Ensure the container fills the entire viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-table {
+  width: 10%;
+  border-collapse: collapse;
+  size: 100;
+}
+
+.admin-table th,
+.admin-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+.admin-table th {
+  background-color: #f2f2f2;
+}
+
+.admin-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.admin-table tr:hover {
+  background-color: blue;
+}
+
+.admin-table th:last-child,
+.admin-table td:last-child {
+  text-align: center;
+}
+
+.admin-button {
+  background-color: #007bff;
+  color: white;
+  border: #333;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-button:hover {
+  background-color: #0056b3;
+}
+table {
+  flex: 1;
+}
+
+/* Styles for the footer */
+
+.admin-dashboard-container {
+  text-align: center;
+}
+
+.table-container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+  border: 1px solid #dddddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.user-table th {
+  background-color: #f2f2f2;
+}
+
+footer {
+  margin-top: auto; /* Push the footer to the bottom */
+}
+/* styles.css */
+
+.input-field {
+  width: 100%;
+  padding: 12px; /* Increase padding for larger fields */
+  margin-bottom: 10px; /* Add some space between fields */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px; /* Increase padding for larger buttons */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+.artist-table-container {
+  margin-top: 20px;
+}
+
+.artist-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+.artist-table th,
+.artist-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.artist-table th {
+  background-color: #f2f2f2;
+}
+
+.artist-table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+.add-artist-container {
+  margin-top: 20px;
+}
+
+.add-artist-container > * {
+  margin-right: 10px;
+}
+
+.add-artist-container button {
+  margin-top: 8px;
+  margin-left: 50%;
 }

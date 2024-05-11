@@ -4,14 +4,14 @@ import Navbar from "./components/Navbar";
 import JoinUs from "./components/JoinUs";
 import Home from "./components/Home";
 import ViewProfile from "./components/ViewProfile";
-//import FileUpload from "./components/FileUpload";
 import AdminDashboard from "./components/AdminDashboard";
 import UpgradePlan from "./components/UpgradePlan";
 import PaymentForm from "./components/PaymentForm";
 import AboutUs from "./components/AboutUs";
-import Footer from "./components/Footer"; // Import the Footer component
+import Footer from "./components/Footer";
 import AudioUpload from "./components/AudioUpload";
 import VideoUpload from "./components/VideoUpload";
+import AdminArtist from "./components/AdminArtist";
 
 function App() {
   return (
@@ -27,15 +27,16 @@ function App() {
             <Route path="/profile" element={<ViewProfile />} />
             <Route path="/upload/Audio" element={<AudioUpload />} />
             <Route path="/upload/Video" element={<VideoUpload />} />
-            <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/UpgradePlan" element={<UpgradePlan />} />
             <Route path="/UpgradePlan/payment" element={<PaymentForm />} />
             <Route path="/PaymentForm" element={<PaymentForm />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/AdminDashboard" element={<AdminDashboard />} />
+            <Route path="/AdminArtist" element={<AdminArtist />} />
           </Routes>
         </div>
-        <Footer /> {/* Include the Footer component */}
+        <Footer />
       </div>
     </Router>
   );

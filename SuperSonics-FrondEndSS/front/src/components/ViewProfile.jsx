@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { TextField, Button, Typography, Box, Avatar } from "@mui/material";
+import { TextField, Button, Box, Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function ViewProfile() {
   const [userInfo, setUserInfo] = useState({
@@ -11,10 +12,16 @@ function ViewProfile() {
     avatar: "/assets/user-avatar.png",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted!");
-    console.log("Updated user information:", userInfo);
+    try {
+      const response = await axios.post("YOUR_BACKEND_API_URL", userInfo);
+      console.log("Response:", response.data);
+      // Handle response data as needed
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle error
+    }
   };
 
   const handleInputChange = (e) => {
@@ -39,9 +46,15 @@ function ViewProfile() {
     }
   };
 
-  const handleDeleteAccount = () => {
-    // Implement logic to delete the account here
-    console.log("Account deleted!");
+  const handleDeleteAccount = async () => {
+    try {
+      const response = await axios.delete("YOUR_DELETE_ENDPOINT");
+      console.log("Account deleted:", response.data);
+      // Handle success message or redirect the user
+    } catch (error) {
+      console.error("Error deleting account:", error);
+      // Handle error
+    }
   };
 
   return (
@@ -60,7 +73,7 @@ function ViewProfile() {
       <Box
         sx={{
           padding: "20px",
-          border: "1px solid #000", // Black border
+          border: "2px solid #000", // Black border
           borderRadius: 8,
           backdropFilter: "blur(20px)",
           position: "absolute",
@@ -69,9 +82,6 @@ function ViewProfile() {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <Typography variant="h4" align="center" gutterBottom>
-          View Your Profile
-        </Typography>
         <Box
           sx={{ display: "flex", justifyContent: "center", marginBottom: 2 }}
         >
@@ -81,6 +91,20 @@ function ViewProfile() {
             sx={{ width: 100, height: 100 }}
           />
         </Box>
+
+        {/* Profile picture change button */}
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleAvatarChange} // Attach handleAvatarChange to file input change
+          style={{ display: "none" }}
+          id="avatar-file-input"
+        />
+        <label htmlFor="avatar-file-input">
+          <Button variant="contained" component="span" sx={{ borderRadius: 8 }}>
+            Change Profile Picture
+          </Button>
+        </label>
 
         {/* Account information form */}
         <form onSubmit={handleSubmit}>
@@ -138,7 +162,11 @@ function ViewProfile() {
             <Button
               variant="contained"
               type="submit"
-              sx={{ fontSize: "0.8rem", padding: "6px 16px" }}
+              sx={{
+                fontSize: "0.8rem",
+                padding: "6px 16px",
+                borderRadius: 8,
+              }}
             >
               Save Changes
             </Button>
@@ -146,7 +174,11 @@ function ViewProfile() {
               variant="contained"
               color="error"
               onClick={handleDeleteAccount}
-              sx={{ fontSize: "0.8rem", padding: "6px 16px" }}
+              sx={{
+                fontSize: "0.8rem",
+                padding: "6px 16px",
+                borderRadius: 8,
+              }}
             >
               Delete Account
             </Button>
@@ -168,6 +200,7 @@ function ViewProfile() {
                 color: "white", // Set text color to white
                 fontSize: "0.8rem",
                 padding: "6px 16px",
+                borderRadius: 8,
               }}
             >
               Go to Payment Form

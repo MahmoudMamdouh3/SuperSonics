@@ -37,10 +37,10 @@ router.register(r'Evaluation', EvaluationViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path("admin/", admin.site.urls),
-    path("run-python-script/", RunPythonScriptView.as_view()),  # Add this line
-    path('login/', LoginView.as_view()),  # Add this line
-    
-    
+    path("run-python-script/", RunPythonScriptView.as_view()),  
+    path('login/', LoginView.as_view()),  
+    path('check-username/', CheckUsernameView.as_view(), name='check_username'),  # Add a comma here
+    path('api/files', get_file_names),
 ]
 
 # urlpatterns = [

@@ -18,9 +18,16 @@ function Footer() {
       <Link to="/aboutus" style={{ textDecoration: "none" }}>
         <Button
           style={{
-            color: "white",
-            textDecoration: "underline",
+            color: "gray", // Adjust color to match the nav items
+            textDecoration: "none", // Remove underline
             fontSize: "0.8rem",
+            transition: "color 0.3s", // Add transition for color property
+          }}
+          sx={{
+            "&:hover": {
+              textDecoration: "none", // Remove underline on hover
+              color: "#007bff !important", // Change color to blue on hover
+            },
           }}
         >
           Contact Us

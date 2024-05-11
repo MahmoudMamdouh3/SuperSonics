@@ -104,6 +104,12 @@ function Navbar() {
             <Link className="nav-item" to="/UpgradePlan">
               UpgradePlan
             </Link>
+            <Link className="nav-item" to="/AdminDashboard">
+              AdminDashboard
+            </Link>
+            <Link className="nav-item" to="/AdminArtist">
+              AdminArtist
+            </Link>
           </Typography>
         </Box>
       </Toolbar>

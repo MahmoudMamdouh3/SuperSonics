@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, IconButton, Box } from "@mui/material";
+import { Card, CardContent, IconButton, Box, Button } from "@mui/material";
 import { Share, ThumbUp } from "@mui/icons-material";
 
 function AudioPlayer({ audioFiles }) {
@@ -8,9 +8,9 @@ function AudioPlayer({ audioFiles }) {
       sx={{
         position: "fixed",
         bottom: "10px",
+        left: 0, // Align to the left edge of the screen
         width: "100%",
         display: "flex",
-        justifyContent: "center",
         flexDirection: "row", // Display horizontally
         alignItems: "center", // Center items horizontally
         zIndex: 999, // Ensure it's above other content
@@ -40,15 +40,20 @@ function AudioPlayer({ audioFiles }) {
               sx={{
                 marginTop: "10px",
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "flex-start", // Align buttons to the left
               }}
             >
-              <IconButton sx={{ marginRight: "10px" }}>
+              {/* Separate buttons */}
+              <Button
+                variant="outlined"
+                color="primary"
+                sx={{ marginRight: "10px" }}
+              >
                 <Share />
-              </IconButton>
-              <IconButton>
+              </Button>
+              <Button variant="outlined" color="secondary">
                 <ThumbUp />
-              </IconButton>
+              </Button>
             </Box>
           </CardContent>
         </Card>
