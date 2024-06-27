@@ -11,8 +11,8 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-from SuperSonic.settings import DATABASES  # Import Django settings
+from supersonic.settings import DATABASES  # Import Django settings
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "SuperSonic.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "supersonic.settings")
 
 application = get_wsgi_application()

@@ -80,7 +80,7 @@ def main(args):
 
 # # Define and execute SQL query to fetch audio data
     print (audio_file_name)
-    cur.execute("SELECT audio FROM Database_audio WHERE name = ?", (audio_file_name,))
+    cur.execute("SELECT audio FROM Database_enhanced_audio WHERE name = ?", (audio_file_name,))
     row = cur.fetchone()
     if row is None:
         print(f"No audio data found for file name {audio_file_name}")
@@ -121,10 +121,10 @@ def main(args):
         assert len(noisy_audio_files) > 0, "No audio files provided"
         input_files = audio_data          #args.noisy_audio_files
     # Get all DatabaseAudio objects
-    audio_objects = Audio.objects.all()
+#     audio_objects = Audio.objects.all()
 
-# Get the audio file paths
-    input_files = [obj.audio.path for obj in audio_objects]
+# # Get the audio file paths
+#     input_files = [obj.audio.path for obj in audio_objects]
 
     ds = AudioDataset(input_files, df_sr)
 # ... rest of your code

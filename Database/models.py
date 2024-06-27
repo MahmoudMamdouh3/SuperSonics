@@ -78,7 +78,7 @@ class Enhanced_audio(models.Model):
     name = models.CharField(max_length=100)
     audio = models.FileField(upload_to='audios/',validators=[validate_file_audio])
     Date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(account, on_delete=models.CASCADE)  
+    #user = models.ForeignKey(account, on_delete=models.CASCADE)  
     artist_name = models.CharField(max_length=100, default='')
     video = models.FileField(upload_to='videos/', validators=[validate_file_video], default='', null=True, blank=True)
      

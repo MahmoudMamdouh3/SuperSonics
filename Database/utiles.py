@@ -68,7 +68,20 @@ class RunPythonScriptView(APIView):
 
         audio_file_name_without_extension, _ = os.path.splitext(audio_file_name)  # Remove the .wav extension
 
-        process = run(['python', 'Z:/SuperSonics/DeepFilterNet-main/DeepFilterNet/df/enhance.py', audio_file_name_without_extension], stdout=PIPE, stderr=PIPE)
+        #
+        # process = run(['python', 'Z:/SuperSonics/versatile_audio_super_resolution-main/audiosr ','-i',  audio_file_name_without_extension], stdout=PIPE, stderr=PIPE)
+        command = [
+            'python', 
+            'Z:/SuperSonics/versatile_audio_super_resolution-main/audiosr/__main__.py',
+             '-i',
+            audio_file_name_without_extension
+        ]
+
+        process = run(command, stdout=PIPE, stderr=PIPE)
+
+# Example of how to access the output and error
+        stdout_output = process.stdout
+        stderr_output = process.stderr
         print("stdout:", process.stdout.decode())  # Print the stdout output
         print("stderr:", process.stderr.decode())  # Print the stderr output
         if process.returncode != 0:
